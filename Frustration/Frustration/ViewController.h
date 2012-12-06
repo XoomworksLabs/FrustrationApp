@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Randomizer.h"
+#import "ColorChooser.h"
 
 @interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
 
@@ -16,7 +17,7 @@
 	Randomizer *randomizer;
 }
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
-
+@property (nonatomic, strong) ColorChooser *colorChooser;
 
 @property (nonatomic, strong) UIColor *cellColor;
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		910E37511670A13300E04B30 /* ColorChooser.m in Sources */ = {isa = PBXBuildFile; fileRef = 910E37501670A13300E04B30 /* ColorChooser.m */; };
 		BC94DAAB16708B8600227223 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC94DAAA16708B8600227223 /* UIKit.framework */; };
 		BC94DAAD16708B8600227223 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC94DAAC16708B8600227223 /* Foundation.framework */; };
 		BC94DAAF16708B8600227223 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC94DAAE16708B8600227223 /* CoreGraphics.framework */; };
@@ -35,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		910E374F1670A13300E04B30 /* ColorChooser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorChooser.h; sourceTree = "<group>"; };
+		910E37501670A13300E04B30 /* ColorChooser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorChooser.m; sourceTree = "<group>"; };
 		BC94DAA616708B8600227223 /* Frustration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Frustration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC94DAAA16708B8600227223 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BC94DAAC16708B8600227223 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -161,6 +164,8 @@
 			children = (
 				BC94DADF1670946400227223 /* Randomizer.h */,
 				BC94DAE01670946400227223 /* Randomizer.m */,
+				910E374F1670A13300E04B30 /* ColorChooser.h */,
+				910E37501670A13300E04B30 /* ColorChooser.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -275,6 +280,7 @@
 				BC94DABB16708B8700227223 /* AppDelegate.m in Sources */,
 				BC94DAC116708B8700227223 /* ViewController.m in Sources */,
 				BC94DAE11670946400227223 /* Randomizer.m in Sources */,
+				910E37511670A13300E04B30 /* ColorChooser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

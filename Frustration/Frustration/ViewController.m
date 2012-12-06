@@ -12,7 +12,6 @@
 @interface ViewController (PrivateCalls)
 
 -(void)timeoutTriggered:(NSTimer*)theTimer;
--(UIColor *) getColorForRow:(NSInteger) row;
 
 @end
 
@@ -20,13 +19,15 @@
 
 @implementation ViewController
 
-@synthesize tableView, cellColor, redPercentage;
+@synthesize tableView, cellColor, redPercentage, colorChooser;
 
 
 -(void)loadView
 {
     [super loadView];
     redPercentage = 0;
+    colorChooser = [[ColorChooser alloc] init];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,7 +45,6 @@
 	//notificationCenter = [NSNotificationCenter defaultCenter];
 		
 	randomizer = [[Randomizer alloc] init];
-
 	double randomTime = [randomizer randomizeWithInterval:0 and:10];
 	timer = [NSTimer scheduledTimerWithTimeInterval:randomTime target:self selector:@selector(timeoutTriggered:) userInfo:nil repeats:YES];
 	
@@ -104,7 +104,7 @@
 }
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    cellColor = [self getColorForRow:indexPath.row];
+    cellColor = [colorChooser getColorForRow:indexPath.row];
     [cell setBackgroundColor:cellColor];
 }
 
@@ -113,14 +113,6 @@
 		
 	[timer invalidate];
 	NSLog(@"timeoutTriggered: timeout");
-}
-
--(UIColor *) getColorForRow:(NSInteger) row
-{
-    float red = (float) (row * 10) / 255.0;
-    CGFloat green = 1.0 - red;
-    NSLog(@"Red is: %f. Green is %f" ,  red, green);
-    return [UIColor colorWithRed:red green:green blue:0.0 alpha:1.0];
 }
 
 
