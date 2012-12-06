@@ -116,7 +116,7 @@
     }
     if (NUMBER_OF_CELLS - indexPath.row > 0)
     {
-    [cell.textLabel setText:[NSString stringWithFormat:@"%@", [self.cellsNames objectAtIndex:(NUMBER_OF_CELLS - indexPath.row - 1)]]];
+    //[cell.textLabel setText:[NSString stringWithFormat:@"%@", [self.cellsNames objectAtIndex:(NUMBER_OF_CELLS - indexPath.row - 1)]]];
     }
     return cell;
 }
@@ -138,7 +138,7 @@
 	[timer invalidate];
 	currentStep += stepper;
     UITableViewCell *currentCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:(NUMBER_OF_CELLS - currentStep) inSection:0]];
-    [currentCell setBackgroundColor:[colorChooser getColorForRow:(NUMBER_OF_CELLS - currentStep)]];
+    [currentCell setBackgroundColor:[colorChooser getCleanColorForRow:(NUMBER_OF_CELLS - currentStep)]];
     [self tableView:tableView willDisplayCell:currentCell forRowAtIndexPath:[NSIndexPath indexPathForRow:(NUMBER_OF_CELLS - currentStep) inSection:0] ];
     [gHelper removeBlockingViewAndEnableViews];
     

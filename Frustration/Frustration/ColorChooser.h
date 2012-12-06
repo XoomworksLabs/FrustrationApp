@@ -11,6 +11,7 @@
 @interface ColorChooser : NSObject
 
 -(UIColor *) getColorForRow:(NSInteger) row;
+-(UIColor *) getCleanColorForRow:(NSInteger ) row;
 
 
 @end
