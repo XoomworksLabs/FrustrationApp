@@ -1,0 +1,448 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BC94DAAB16708B8600227223 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC94DAAA16708B8600227223 /* UIKit.framework */; };
+		BC94DAAD16708B8600227223 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC94DAAC16708B8600227223 /* Foundation.framework */; };
+		BC94DAAF16708B8600227223 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC94DAAE16708B8600227223 /* CoreGraphics.framework */; };
+		BC94DAB516708B8700227223 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BC94DAB316708B8700227223 /* InfoPlist.strings */; };
+		BC94DAB716708B8700227223 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC94DAB616708B8700227223 /* main.m */; };
+		BC94DABB16708B8700227223 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC94DABA16708B8700227223 /* AppDelegate.m */; };
+		BC94DABE16708B8700227223 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC94DABC16708B8700227223 /* MainStoryboard.storyboard */; };
+		BC94DAC116708B8700227223 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC94DAC016708B8700227223 /* ViewController.m */; };
+		BC94DAC916708B8700227223 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC94DAC816708B8700227223 /* SenTestingKit.framework */; };
+		BC94DACA16708B8700227223 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC94DAAA16708B8600227223 /* UIKit.framework */; };
+		BC94DACB16708B8700227223 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC94DAAC16708B8600227223 /* Foundation.framework */; };
+		BC94DAD316708B8700227223 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BC94DAD116708B8700227223 /* InfoPlist.strings */; };
+		BC94DAD616708B8700227223 /* FrustrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BC94DAD516708B8700227223 /* FrustrationTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BC94DACC16708B8700227223 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BC94DA9D16708B8600227223 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BC94DAA516708B8600227223;
+			remoteInfo = Frustration;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BC94DAA616708B8600227223 /* Frustration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Frustration.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC94DAAA16708B8600227223 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		BC94DAAC16708B8600227223 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BC94DAAE16708B8600227223 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		BC94DAB216708B8700227223 /* Frustration-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Frustration-Info.plist"; sourceTree = "<group>"; };
+		BC94DAB416708B8700227223 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BC94DAB616708B8700227223 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BC94DAB816708B8700227223 /* Frustration-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Frustration-Prefix.pch"; sourceTree = "<group>"; };
+		BC94DAB916708B8700227223 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BC94DABA16708B8700227223 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BC94DABD16708B8700227223 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		BC94DABF16708B8700227223 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		BC94DAC016708B8700227223 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BC94DAC716708B8700227223 /* FrustrationTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FrustrationTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC94DAC816708B8700227223 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		BC94DAD016708B8700227223 /* FrustrationTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FrustrationTests-Info.plist"; sourceTree = "<group>"; };
+		BC94DAD216708B8700227223 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BC94DAD416708B8700227223 /* FrustrationTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FrustrationTests.h; sourceTree = "<group>"; };
+		BC94DAD516708B8700227223 /* FrustrationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FrustrationTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BC94DAA316708B8600227223 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC94DAAB16708B8600227223 /* UIKit.framework in Frameworks */,
+				BC94DAAD16708B8600227223 /* Foundation.framework in Frameworks */,
+				BC94DAAF16708B8600227223 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC94DAC316708B8700227223 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC94DAC916708B8700227223 /* SenTestingKit.framework in Frameworks */,
+				BC94DACA16708B8700227223 /* UIKit.framework in Frameworks */,
+				BC94DACB16708B8700227223 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BC94DA9B16708B8600227223 = {
+			isa = PBXGroup;
+			children = (
+				BC94DAB016708B8600227223 /* Frustration */,
+				BC94DACE16708B8700227223 /* FrustrationTests */,
+				BC94DAA916708B8600227223 /* Frameworks */,
+				BC94DAA716708B8600227223 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BC94DAA716708B8600227223 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BC94DAA616708B8600227223 /* Frustration.app */,
+				BC94DAC716708B8700227223 /* FrustrationTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BC94DAA916708B8600227223 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BC94DAAA16708B8600227223 /* UIKit.framework */,
+				BC94DAAC16708B8600227223 /* Foundation.framework */,
+				BC94DAAE16708B8600227223 /* CoreGraphics.framework */,
+				BC94DAC816708B8700227223 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BC94DAB016708B8600227223 /* Frustration */ = {
+			isa = PBXGroup;
+			children = (
+				BC94DAB916708B8700227223 /* AppDelegate.h */,
+				BC94DABA16708B8700227223 /* AppDelegate.m */,
+				BC94DABC16708B8700227223 /* MainStoryboard.storyboard */,
+				BC94DABF16708B8700227223 /* ViewController.h */,
+				BC94DAC016708B8700227223 /* ViewController.m */,
+				BC94DAB116708B8600227223 /* Supporting Files */,
+			);
+			path = Frustration;
+			sourceTree = "<group>";
+		};
+		BC94DAB116708B8600227223 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BC94DAB216708B8700227223 /* Frustration-Info.plist */,
+				BC94DAB316708B8700227223 /* InfoPlist.strings */,
+				BC94DAB616708B8700227223 /* main.m */,
+				BC94DAB816708B8700227223 /* Frustration-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BC94DACE16708B8700227223 /* FrustrationTests */ = {
+			isa = PBXGroup;
+			children = (
+				BC94DAD416708B8700227223 /* FrustrationTests.h */,
+				BC94DAD516708B8700227223 /* FrustrationTests.m */,
+				BC94DACF16708B8700227223 /* Supporting Files */,
+			);
+			path = FrustrationTests;
+			sourceTree = "<group>";
+		};
+		BC94DACF16708B8700227223 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BC94DAD016708B8700227223 /* FrustrationTests-Info.plist */,
+				BC94DAD116708B8700227223 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BC94DAA516708B8600227223 /* Frustration */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC94DAD916708B8700227223 /* Build configuration list for PBXNativeTarget "Frustration" */;
+			buildPhases = (
+				BC94DAA216708B8600227223 /* Sources */,
+				BC94DAA316708B8600227223 /* Frameworks */,
+				BC94DAA416708B8600227223 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Frustration;
+			productName = Frustration;
+			productReference = BC94DAA616708B8600227223 /* Frustration.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BC94DAC616708B8700227223 /* FrustrationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC94DADC16708B8700227223 /* Build configuration list for PBXNativeTarget "FrustrationTests" */;
+			buildPhases = (
+				BC94DAC216708B8700227223 /* Sources */,
+				BC94DAC316708B8700227223 /* Frameworks */,
+				BC94DAC416708B8700227223 /* Resources */,
+				BC94DAC516708B8700227223 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BC94DACD16708B8700227223 /* PBXTargetDependency */,
+			);
+			name = FrustrationTests;
+			productName = FrustrationTests;
+			productReference = BC94DAC716708B8700227223 /* FrustrationTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BC94DA9D16708B8600227223 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = BC94DAA016708B8600227223 /* Build configuration list for PBXProject "Frustration" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = BC94DA9B16708B8600227223;
+			productRefGroup = BC94DAA716708B8600227223 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BC94DAA516708B8600227223 /* Frustration */,
+				BC94DAC616708B8700227223 /* FrustrationTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BC94DAA416708B8600227223 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC94DAB516708B8700227223 /* InfoPlist.strings in Resources */,
+				BC94DABE16708B8700227223 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC94DAC416708B8700227223 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC94DAD316708B8700227223 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BC94DAC516708B8700227223 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BC94DAA216708B8600227223 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC94DAB716708B8700227223 /* main.m in Sources */,
+				BC94DABB16708B8700227223 /* AppDelegate.m in Sources */,
+				BC94DAC116708B8700227223 /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC94DAC216708B8700227223 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC94DAD616708B8700227223 /* FrustrationTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BC94DACD16708B8700227223 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BC94DAA516708B8600227223 /* Frustration */;
+			targetProxy = BC94DACC16708B8700227223 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BC94DAB316708B8700227223 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BC94DAB416708B8700227223 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		BC94DABC16708B8700227223 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BC94DABD16708B8700227223 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		BC94DAD116708B8700227223 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BC94DAD216708B8700227223 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BC94DAD716708B8700227223 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		BC94DAD816708B8700227223 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BC94DADA16708B8700227223 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Frustration/Frustration-Prefix.pch";
+				INFOPLIST_FILE = "Frustration/Frustration-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		BC94DADB16708B8700227223 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Frustration/Frustration-Prefix.pch";
+				INFOPLIST_FILE = "Frustration/Frustration-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		BC94DADD16708B8700227223 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Frustration.app/Frustration";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Frustration/Frustration-Prefix.pch";
+				INFOPLIST_FILE = "FrustrationTests/FrustrationTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		BC94DADE16708B8700227223 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Frustration.app/Frustration";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Frustration/Frustration-Prefix.pch";
+				INFOPLIST_FILE = "FrustrationTests/FrustrationTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BC94DAA016708B8600227223 /* Build configuration list for PBXProject "Frustration" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC94DAD716708B8700227223 /* Debug */,
+				BC94DAD816708B8700227223 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BC94DAD916708B8700227223 /* Build configuration list for PBXNativeTarget "Frustration" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC94DADA16708B8700227223 /* Debug */,
+				BC94DADB16708B8700227223 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BC94DADC16708B8700227223 /* Build configuration list for PBXNativeTarget "FrustrationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC94DADD16708B8700227223 /* Debug */,
+				BC94DADE16708B8700227223 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BC94DA9D16708B8600227223 /* Project object */;
+}
