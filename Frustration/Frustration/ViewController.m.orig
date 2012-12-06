@@ -66,6 +66,15 @@
 	return YES;
 }
 
+<<<<<<< HEAD
+#pragma mark - trigger
+
+-(void)timeoutTriggered:(NSNotification *)notification {
+
+	NSLog(@"Timeout.");
+}
+
+=======
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -85,5 +94,6 @@
     [cell.textLabel setText:@"Simple cell"];
     return cell;
 }
+>>>>>>> 26bd6f847ddcd84411534bbadd80dc46b445e16f
 
 @end

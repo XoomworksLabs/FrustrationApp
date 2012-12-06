@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
-
+<<<<<<< HEAD
+@interface ViewController : UIViewController {
+	
 	NSNotificationCenter *notificationCenter;
 }
+=======
+@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
+>>>>>>> 26bd6f847ddcd84411534bbadd80dc46b445e16f
 
 @end
