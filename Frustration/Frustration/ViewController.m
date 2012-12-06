@@ -8,6 +8,9 @@
 
 #import "ViewController.h"
 
+
+#define kTIMEOUT_TRIGGERED				@"TimeoutTriggered"
+
 @implementation ViewController
 
 - (void)didReceiveMemoryWarning
@@ -22,6 +25,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+	notificationCenter = [NSNotificationCenter defaultCenter];
+		
+	
+	[notificationCenter addObserver:self selector:@selector(timeoutTriggered:) name:kTIMEOUT_TRIGGERED object:nil];
 }
 
 - (void)viewDidUnload
@@ -56,5 +63,13 @@
     // Return YES for supported orientations
 	return YES;
 }
+
+#pragma mark - trigger
+
+-(void)timeoutTriggered:(NSNotification *)notification {
+
+	NSLog(@"Timeout.");
+}
+
 
 @end
