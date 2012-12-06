@@ -5,16 +5,26 @@
 //  Created by Alexandru Gavrila on 12/6/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
+#define kTIMEOUT_TRIGGERED				@"TimeoutTriggered"
 
 #import "ViewController.h"
 
 #define kTIMEOUT_TRIGGERED				@"TimeoutTriggered"
 
 @interface ViewController (PrivateCalls)
+<<<<<<< HEAD
+=======
+
+>>>>>>> d8b47c3ed77f61d68d80edb76c10102ac5cb7e1d
 -(void)timeoutTriggered:(NSTimer*)theTimer;
 -(UIColor *) getColorForRow:(NSInteger) row;
 @end
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> d8b47c3ed77f61d68d80edb76c10102ac5cb7e1d
 @implementation ViewController
 
 @synthesize tableView, cellColor, redPercentage, startInterval, endInterval;
@@ -112,7 +122,7 @@
 
 -(UIColor *) getColorForRow:(NSInteger) row
 {
-    float red = (float) (row * 5) / 255.0;
+    float red = (float) (row * 10) / 255.0;
     CGFloat green = 1.0 - red;
     NSLog(@"Red is: %f. Green is %f" ,  red, green);
     return [UIColor colorWithRed:red green:green blue:0.0 alpha:1.0];
@@ -120,11 +130,15 @@
 
 
 - (IBAction)updateAction:(id)sender {
+<<<<<<< HEAD
 
 	double randomTime = [randomizer randomizeWithInterval:self.startInterval and:self.endInterval];
 	NSLog(@"]random Time: %g", randomTime);
 	
 	timer = [NSTimer scheduledTimerWithTimeInterval:randomTime target:self selector:@selector(timeoutTriggered:) userInfo:nil repeats:YES];    
+=======
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:rand() % 100 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+>>>>>>> d8b47c3ed77f61d68d80edb76c10102ac5cb7e1d
 }
 
 - (IBAction)breakAction:(id)sender {
