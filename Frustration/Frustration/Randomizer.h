@@ -7,8 +7,21 @@
 //
 
 #import <stdlib.h>
+#define PAIR_ELEMENTS			2
+#define MAX_SECTIONS			6
 
-@interface Randomizer : NSObject
+@interface Randomizer : NSObject {
+	
+	int timeIntervalA[PAIR_ELEMENTS];
+	int timeIntervalB[PAIR_ELEMENTS];	
+	int timeIntervalC[PAIR_ELEMENTS];	
+	int timeIntervalD[PAIR_ELEMENTS];
+	int timeIntervalE[PAIR_ELEMENTS];	
+	int timeIntervalF[PAIR_ELEMENTS];	
+	
+	BOOL onceLong;
+}
 
--(double)randomizeWithInterval:(u_int32_t) start and:(u_int32_t) end;
+-(double)randomizeWithInterval;
+-(void)reset;
 @end
