@@ -20,6 +20,7 @@
 
 -(void)timeoutTriggered:(NSTimer*)theTimer;
 -(void)createWebView;
+-(void)addSpinner;
 
 @end
 
@@ -168,24 +169,7 @@
 
     [self createWebView];
     
-        UIView *view = [[UIView alloc] initWithFrame:currentCell.backgroundView.frame];
-    [view setBackgroundColor:[UIColor clearColor]];
-    [currentCell setBackgroundView:view];
-    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(360, 30, 0, 0)];
-    [view addSubview:spinner];
-    
-    
-    [UIView animateWithDuration:0.15f animations:^{
-        CGRect frame = [spinner frame];
-        frame.origin.x -= 20;
-        frame.size.width += 40;
-        frame.origin.y -= 20;
-        frame.size.height += 40;
-        [spinner setFrame:frame];
-        spinner.layer.cornerRadius = 3.0;
-        [spinner setBackgroundColor:[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.3]];
-        [spinner startAnimating];
-    }];
+    [self addSpinner];
 
     
     [self tableView:tableView willDisplayCell:currentCell forRowAtIndexPath:[NSIndexPath indexPathForRow:(NUMBER_OF_CELLS - currentStep) inSection:0] ];
@@ -217,9 +201,10 @@
 - (IBAction)resetAction:(id)sender {
 
 	[randomizer reset];
-    if ([self.updaterButton isHidden])
+    if ([self.updaterButton isHidden] || ![self.updaterButton isEnabled])
     {
         [self.updaterButton setHidden:NO];
+        [self.updaterButton setEnabled:YES];
     }
     currentStep = 0;
     reset = YES;
@@ -231,6 +216,7 @@
 - (void)webViewDidFinishLoad:(UIWebView *)wV
 {
     [currentCell setBackgroundView:wV];
+    [self.updaterButton setEnabled:YES];
 }
 -(void)createWebView
 {
@@ -241,6 +227,27 @@
     [webView loadRequest:requestObj];
     [webView setDelegate:self];
 
+}
+-(void)addSpinner
+{
+    UIView *view = [[UIView alloc] initWithFrame:currentCell.backgroundView.frame];
+    [view setBackgroundColor:[UIColor clearColor]];
+    [currentCell setBackgroundView:view];
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(360, 30, 0, 0)];
+    [view addSubview:spinner];
+    [self.updaterButton setEnabled:NO];
+    
+    [UIView animateWithDuration:0.15f animations:^{
+        CGRect frame = [spinner frame];
+        frame.origin.x -= 20;
+        frame.size.width += 40;
+        frame.origin.y -= 20;
+        frame.size.height += 40;
+        [spinner setFrame:frame];
+        spinner.layer.cornerRadius = 3.0;
+        [spinner setBackgroundColor:[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.3]];
+        [spinner startAnimating];
+    }];
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {    
