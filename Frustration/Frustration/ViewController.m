@@ -5,21 +5,26 @@
 //  Created by Alexandru Gavrila on 12/6/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
-#define kTIMEOUT_TRIGGERED				@"TimeoutTriggered"
 
 #import "ViewController.h"
 
-@interface ViewController (PrivateCalls)
+#define kTIMEOUT_TRIGGERED				@"TimeoutTriggered"
+#define MAX_SCROLL_RANGE				100
+#define SCROLL_STEPPER_MINIMUM			1
+#define SCROLL_STEPPER_MAXIMUM			15
 
+@interface ViewController (PrivateCalls)
 -(void)timeoutTriggered:(NSTimer*)theTimer;
 
 @end
 
-
-
 @implementation ViewController
+@synthesize incrementerButton;
+@synthesize updaterButton;
+@synthesize decrementerButton;
 
-@synthesize tableView, cellColor, redPercentage, colorChooser;
+@synthesize tableView, cellColor, redPercentage, colorChooser, gHelper;
+@synthesize startInterval, endInterval;
 
 
 -(void)loadView
@@ -45,13 +50,17 @@
 	//notificationCenter = [NSNotificationCenter defaultCenter];
 		
 	randomizer = [[Randomizer alloc] init];
-	double randomTime = [randomizer randomizeWithInterval:0 and:10];
-	timer = [NSTimer scheduledTimerWithTimeInterval:randomTime target:self selector:@selector(timeoutTriggered:) userInfo:nil repeats:YES];
+	self.startInterval = 0;
+	self.endInterval = 5;
 	
+	gHelper = [[GraphicsHelper alloc] init];
 }
 
 - (void)viewDidUnload
 {
+	[self setUpdaterButton:nil];
+	[self setIncrementerButton:nil];
+	[self setIncrementerButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -89,7 +98,7 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 100;
+    return MAX_SCROLL_RANGE;
 }
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -112,16 +121,32 @@
 		
 	[timer invalidate];
 	NSLog(@"timeoutTriggered: timeout");
+	if (currentStep >= MAX_SCROLL_RANGE) 
+		currentStep = 0;
+	
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:currentStep+=stepper inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];	
+	[gHelper removeBlockingViewAndEnableViews];
 }
 
 
 - (IBAction)updateAction:(id)sender {
-    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:rand() % 100 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+
+	double randomTime = [randomizer randomizeWithInterval:self.startInterval and:self.endInterval];
+	NSLog(@"]random Time: %g", randomTime);
+	
+	timer = [NSTimer scheduledTimerWithTimeInterval:randomTime target:self selector:@selector(timeoutTriggered:) userInfo:nil repeats:NO];
+	[gHelper createAndAddBlockingViewToScreen:self.view withMessage:@"Please wait" andDisableViews:[NSArray arrayWithObjects:self.tableView, self.incrementerButton, self.decrementerButton, self.updaterButton , nil]];
 }
 
 - (IBAction)breakAction:(id)sender {
+	
+	if (stepper > SCROLL_STEPPER_MINIMUM)
+		stepper--;
 }
 
 - (IBAction)accelerateAction:(id)sender {
+
+	if (stepper < SCROLL_STEPPER_MAXIMUM)
+		stepper++;
 }
 @end

@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< HEAD
+		BC8B5F5B1670A5A900D83BB3 /* GraphicsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8B5F5A1670A5A900D83BB3 /* GraphicsHelper.m */; };
+		BC8B5F5C1670A96E00D83BB3 /* GraphicsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8B5F5A1670A5A900D83BB3 /* GraphicsHelper.m */; };
+=======
 		910E37511670A13300E04B30 /* ColorChooser.m in Sources */ = {isa = PBXBuildFile; fileRef = 910E37501670A13300E04B30 /* ColorChooser.m */; };
-		BC8B5F5B1670A5A900D83BB3 /* (null) in Sources */ = {isa = PBXBuildFile; };
-		BC8B5F5C1670A96E00D83BB3 /* (null) in Sources */ = {isa = PBXBuildFile; };
+>>>>>>> 3d1d98ebc401f9958c52864a46948667f54bddad
 		BC94DAAB16708B8600227223 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC94DAAA16708B8600227223 /* UIKit.framework */; };
 		BC94DAAD16708B8600227223 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC94DAAC16708B8600227223 /* Foundation.framework */; };
 		BC94DAAF16708B8600227223 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC94DAAE16708B8600227223 /* CoreGraphics.framework */; };
@@ -25,7 +28,6 @@
 		BC94DAD616708B8700227223 /* FrustrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BC94DAD516708B8700227223 /* FrustrationTests.m */; };
 		BC94DAE11670946400227223 /* Randomizer.m in Sources */ = {isa = PBXBuildFile; fileRef = BC94DAE01670946400227223 /* Randomizer.m */; };
 		BC94DAE21670946400227223 /* Randomizer.m in Sources */ = {isa = PBXBuildFile; fileRef = BC94DAE01670946400227223 /* Randomizer.m */; };
-		BCE91A071670AB460028E5FD /* GraphicsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE91A061670AB460028E5FD /* GraphicsHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +41,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+<<<<<<< HEAD
+		BC8B5F591670A5A900D83BB3 /* GraphicsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphicsHelper.h; sourceTree = "<group>"; };
+		BC8B5F5A1670A5A900D83BB3 /* GraphicsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphicsHelper.m; sourceTree = "<group>"; };
+=======
 		910E374F1670A13300E04B30 /* ColorChooser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorChooser.h; sourceTree = "<group>"; };
 		910E37501670A13300E04B30 /* ColorChooser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorChooser.m; sourceTree = "<group>"; };
+>>>>>>> 3d1d98ebc401f9958c52864a46948667f54bddad
 		BC94DAA616708B8600227223 /* Frustration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Frustration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC94DAAA16708B8600227223 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BC94DAAC16708B8600227223 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -62,8 +69,6 @@
 		BC94DAD516708B8700227223 /* FrustrationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FrustrationTests.m; sourceTree = "<group>"; };
 		BC94DADF1670946400227223 /* Randomizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Randomizer.h; sourceTree = "<group>"; };
 		BC94DAE01670946400227223 /* Randomizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Randomizer.m; sourceTree = "<group>"; };
-		BCE91A051670AB460028E5FD /* GraphicsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphicsHelper.h; sourceTree = "<group>"; };
-		BCE91A061670AB460028E5FD /* GraphicsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphicsHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,8 +172,8 @@
 		BC94DAE31670946C00227223 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				BCE91A051670AB460028E5FD /* GraphicsHelper.h */,
-				BCE91A061670AB460028E5FD /* GraphicsHelper.m */,
+				BC8B5F591670A5A900D83BB3 /* GraphicsHelper.h */,
+				BC8B5F5A1670A5A900D83BB3 /* GraphicsHelper.m */,
 				BC94DADF1670946400227223 /* Randomizer.h */,
 				BC94DAE01670946400227223 /* Randomizer.m */,
 				910E374F1670A13300E04B30 /* ColorChooser.h */,
@@ -287,9 +292,11 @@
 				BC94DABB16708B8700227223 /* AppDelegate.m in Sources */,
 				BC94DAC116708B8700227223 /* ViewController.m in Sources */,
 				BC94DAE11670946400227223 /* Randomizer.m in Sources */,
-				BC8B5F5C1670A96E00D83BB3 /* (null) in Sources */,
+<<<<<<< HEAD
+				BC8B5F5C1670A96E00D83BB3 /* GraphicsHelper.m in Sources */,
+=======
 				910E37511670A13300E04B30 /* ColorChooser.m in Sources */,
-				BCE91A071670AB460028E5FD /* GraphicsHelper.m in Sources */,
+>>>>>>> 3d1d98ebc401f9958c52864a46948667f54bddad
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,7 +306,7 @@
 			files = (
 				BC94DAD616708B8700227223 /* FrustrationTests.m in Sources */,
 				BC94DAE21670946400227223 /* Randomizer.m in Sources */,
-				BC8B5F5B1670A5A900D83BB3 /* (null) in Sources */,
+				BC8B5F5B1670A5A900D83BB3 /* GraphicsHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
