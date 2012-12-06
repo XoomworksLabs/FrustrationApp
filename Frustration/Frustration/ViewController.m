@@ -84,7 +84,7 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return 100;
 }
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -95,8 +95,6 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         
     }
-    
-    [cell.textLabel setText:@"Simple cell"];
     return cell;
 }
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -114,7 +112,10 @@
 
 -(UIColor *) getColorForRow:(NSInteger) row
 {
-    return [UIColor colorWithRed:0.5 green:0.1 blue:0.0 alpha:1.0];
+    float red = (float) (row * 5) / 255.0;
+    CGFloat green = 1.0 - red;
+    NSLog(@"Red is: %f. Green is %f" ,  red, green);
+    return [UIColor colorWithRed:red green:green blue:0.0 alpha:1.0];
 }
 
 
