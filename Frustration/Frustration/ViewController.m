@@ -153,7 +153,7 @@
 - (IBAction)updateAction:(id)sender {
     
   
-	double randomTime = [randomizer randomizeWithInterval:self.startInterval and:self.endInterval];
+	double randomTime = [randomizer randomizeWithInterval];
 	NSLog(@"]random Time: %g", randomTime);
 	
 	timer = [NSTimer scheduledTimerWithTimeInterval:randomTime target:self selector:@selector(timeoutTriggered:) userInfo:nil repeats:NO];
@@ -162,6 +162,8 @@
 }
 
 - (IBAction)resetAction:(id)sender {
+
+	[randomizer reset];
     if ([self.updaterButton isHidden])
     {
         [self.updaterButton setHidden:NO];
