@@ -8,9 +8,22 @@
 
 #import "ViewController.h"
 
+@interface ViewController ()
+
+-(UIColor *) getColorForRow:(NSInteger) row;
+
+@end
+
 @implementation ViewController
 
-@synthesize tableView;
+@synthesize tableView, cellColor, redPercentage;
+
+
+-(void)loadView
+{
+    [super loadView];
+    redPercentage = 0;
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -74,9 +87,31 @@
     if (!cell)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        
     }
+    
     [cell.textLabel setText:@"Simple cell"];
     return cell;
 }
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    cellColor = [self getColorForRow:indexPath.row];
+    [cell setBackgroundColor:cellColor];
+}
 
+-(UIColor *) getColorForRow:(NSInteger) row
+{
+    return [UIColor colorWithRed:0.5 green:0.1 blue:0.0 alpha:1.0];
+}
+
+
+- (IBAction)updateAction:(id)sender {
+    
+}
+
+- (IBAction)breakAction:(id)sender {
+}
+
+- (IBAction)accelerateAction:(id)sender {
+}
 @end

@@ -433,6 +433,7 @@
 				BC94DADB16708B8700227223 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BC94DADC16708B8700227223 /* Build configuration list for PBXNativeTarget "FrustrationTests" */ = {
 			isa = XCConfigurationList;
@@ -441,6 +442,7 @@
 				BC94DADE16708B8700227223 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
