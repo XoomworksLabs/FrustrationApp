@@ -20,6 +20,8 @@
 		BC94DACB16708B8700227223 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC94DAAC16708B8600227223 /* Foundation.framework */; };
 		BC94DAD316708B8700227223 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BC94DAD116708B8700227223 /* InfoPlist.strings */; };
 		BC94DAD616708B8700227223 /* FrustrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BC94DAD516708B8700227223 /* FrustrationTests.m */; };
+		BC94DAE11670946400227223 /* Randomizer.m in Sources */ = {isa = PBXBuildFile; fileRef = BC94DAE01670946400227223 /* Randomizer.m */; };
+		BC94DAE21670946400227223 /* Randomizer.m in Sources */ = {isa = PBXBuildFile; fileRef = BC94DAE01670946400227223 /* Randomizer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		BC94DAD216708B8700227223 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BC94DAD416708B8700227223 /* FrustrationTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FrustrationTests.h; sourceTree = "<group>"; };
 		BC94DAD516708B8700227223 /* FrustrationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FrustrationTests.m; sourceTree = "<group>"; };
+		BC94DADF1670946400227223 /* Randomizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Randomizer.h; sourceTree = "<group>"; };
+		BC94DAE01670946400227223 /* Randomizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Randomizer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 		BC94DAB016708B8600227223 /* Frustration */ = {
 			isa = PBXGroup;
 			children = (
+				BC94DAE31670946C00227223 /* Classes */,
 				BC94DAB916708B8700227223 /* AppDelegate.h */,
 				BC94DABA16708B8700227223 /* AppDelegate.m */,
 				BC94DABC16708B8700227223 /* MainStoryboard.storyboard */,
@@ -149,6 +154,15 @@
 				BC94DAD116708B8700227223 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BC94DAE31670946C00227223 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				BC94DADF1670946400227223 /* Randomizer.h */,
+				BC94DAE01670946400227223 /* Randomizer.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +274,7 @@
 				BC94DAB716708B8700227223 /* main.m in Sources */,
 				BC94DABB16708B8700227223 /* AppDelegate.m in Sources */,
 				BC94DAC116708B8700227223 /* ViewController.m in Sources */,
+				BC94DAE11670946400227223 /* Randomizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC94DAD616708B8700227223 /* FrustrationTests.m in Sources */,
+				BC94DAE21670946400227223 /* Randomizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
