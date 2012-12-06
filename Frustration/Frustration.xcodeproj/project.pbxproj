@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC8B5F5B1670A5A900D83BB3 /* GraphicsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8B5F5A1670A5A900D83BB3 /* GraphicsHelper.m */; };
+		BC8B5F5C1670A96E00D83BB3 /* GraphicsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8B5F5A1670A5A900D83BB3 /* GraphicsHelper.m */; };
 		BC94DAAB16708B8600227223 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC94DAAA16708B8600227223 /* UIKit.framework */; };
 		BC94DAAD16708B8600227223 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC94DAAC16708B8600227223 /* Foundation.framework */; };
 		BC94DAAF16708B8600227223 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC94DAAE16708B8600227223 /* CoreGraphics.framework */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BC8B5F591670A5A900D83BB3 /* GraphicsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphicsHelper.h; sourceTree = "<group>"; };
+		BC8B5F5A1670A5A900D83BB3 /* GraphicsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphicsHelper.m; sourceTree = "<group>"; };
 		BC94DAA616708B8600227223 /* Frustration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Frustration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC94DAAA16708B8600227223 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BC94DAAC16708B8600227223 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -159,6 +163,8 @@
 		BC94DAE31670946C00227223 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				BC8B5F591670A5A900D83BB3 /* GraphicsHelper.h */,
+				BC8B5F5A1670A5A900D83BB3 /* GraphicsHelper.m */,
 				BC94DADF1670946400227223 /* Randomizer.h */,
 				BC94DAE01670946400227223 /* Randomizer.m */,
 			);
@@ -275,6 +281,7 @@
 				BC94DABB16708B8700227223 /* AppDelegate.m in Sources */,
 				BC94DAC116708B8700227223 /* ViewController.m in Sources */,
 				BC94DAE11670946400227223 /* Randomizer.m in Sources */,
+				BC8B5F5C1670A96E00D83BB3 /* GraphicsHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +291,7 @@
 			files = (
 				BC94DAD616708B8700227223 /* FrustrationTests.m in Sources */,
 				BC94DAE21670946400227223 /* Randomizer.m in Sources */,
+				BC8B5F5B1670A5A900D83BB3 /* GraphicsHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@
 #import <stdlib.h>
 #import <UIKit/UIKit.h>
 #import "Randomizer.h"
+#import "GraphicsHelper.h"
 
 
 @interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
@@ -16,11 +17,16 @@
 	NSNotificationCenter *notificationCenter;
 	NSTimer *timer;
 	Randomizer *randomizer;
+	NSInteger currentStep;
+	NSInteger stepper;
 }
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) u_int32_t startInterval;
 @property (nonatomic, assign) u_int32_t endInterval;
-
+@property (nonatomic, strong) GraphicsHelper *gHelper;
+@property (weak, nonatomic) IBOutlet UIButton *updaterButton;
+@property (weak, nonatomic) IBOutlet UIButton *decrementerButton;
+@property (weak, nonatomic) IBOutlet UIButton *incrementerButton;
 
 @property (nonatomic, strong) UIColor *cellColor;
 

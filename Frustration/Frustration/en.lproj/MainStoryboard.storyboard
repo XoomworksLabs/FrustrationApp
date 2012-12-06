@@ -71,24 +71,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="decrementerButton" destination="Tfx-3V-YX5" id="obx-rr-Sf8"/>
+                        <outlet property="incrementerButton" destination="4jf-Kl-PYo" id="OjU-Rf-MA4"/>
                         <outlet property="tableView" destination="O6y-RB-hIM" id="cMd-hP-caI"/>
+                        <outlet property="updaterButton" destination="rzx-6T-bwS" id="5s8-Tb-4CW"/>
                     </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="331" y="-103"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="accelerateAction:"/>
-                <relationship kind="action" name="breakAction:"/>
-                <relationship kind="action" name="updateAction:"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
