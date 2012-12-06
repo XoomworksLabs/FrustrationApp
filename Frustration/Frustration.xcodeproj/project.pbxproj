@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		910E37511670A13300E04B30 /* ColorChooser.m in Sources */ = {isa = PBXBuildFile; fileRef = 910E37501670A13300E04B30 /* ColorChooser.m */; };
+		910E37591670B77400E04B30 /* BuilderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 910E37581670B77400E04B30 /* BuilderViewController.m */; };
 		BC8B5F5B1670A5A900D83BB3 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		BC8B5F5C1670A96E00D83BB3 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		BC94DAAB16708B8600227223 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC94DAAA16708B8600227223 /* UIKit.framework */; };
@@ -41,6 +42,8 @@
 /* Begin PBXFileReference section */
 		910E374F1670A13300E04B30 /* ColorChooser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorChooser.h; sourceTree = "<group>"; };
 		910E37501670A13300E04B30 /* ColorChooser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorChooser.m; sourceTree = "<group>"; };
+		910E37571670B77400E04B30 /* BuilderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuilderViewController.h; sourceTree = "<group>"; };
+		910E37581670B77400E04B30 /* BuilderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuilderViewController.m; sourceTree = "<group>"; };
 		BC94DAA616708B8600227223 /* Frustration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Frustration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC94DAAA16708B8600227223 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BC94DAAC16708B8600227223 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -130,6 +133,8 @@
 				BC94DABF16708B8700227223 /* ViewController.h */,
 				BC94DAC016708B8700227223 /* ViewController.m */,
 				BC94DAB116708B8600227223 /* Supporting Files */,
+				910E37571670B77400E04B30 /* BuilderViewController.h */,
+				910E37581670B77400E04B30 /* BuilderViewController.m */,
 			);
 			path = Frustration;
 			sourceTree = "<group>";
@@ -290,6 +295,7 @@
 				BC8B5F5C1670A96E00D83BB3 /* (null) in Sources */,
 				910E37511670A13300E04B30 /* ColorChooser.m in Sources */,
 				BCE91A071670AB460028E5FD /* GraphicsHelper.m in Sources */,
+				910E37591670B77400E04B30 /* BuilderViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

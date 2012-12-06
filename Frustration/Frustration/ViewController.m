@@ -9,32 +9,35 @@
 #import "ViewController.h"
 
 #define kTIMEOUT_TRIGGERED				@"TimeoutTriggered"
-#define MAX_SCROLL_RANGE				100
+#define MAX_SCROLL_RANGE				6
 #define SCROLL_STEPPER_MINIMUM			1
 #define SCROLL_STEPPER_MAXIMUM			15
 #define START_POSITION                  0
+#define NUMBER_OF_CELLS                 6
+#define TOOLBAR_SIZE                    65
 
 @interface ViewController (PrivateCalls)
+
 -(void)timeoutTriggered:(NSTimer*)theTimer;
 
 @end
 
 @implementation ViewController
-@synthesize currentPosition;
-@synthesize speed;
-@synthesize incrementerButton;
+@synthesize resetButton;
 @synthesize updaterButton;
-@synthesize decrementerButton;
 
 @synthesize tableView, cellColor, redPercentage, colorChooser, gHelper;
-@synthesize startInterval, endInterval;
+@synthesize startInterval, endInterval, cellsNames;
 
 
 -(void)loadView
 {
     [super loadView];
-    redPercentage = 0;
+    cellsNames = [NSArray arrayWithObjects:@"Very low energy" , @"Low energy", @"Enough energy", @"Medium energy", @"High energy", @"Very high energy", nil];
+    currentStep = 0;
+    stepper = 1;
     colorChooser = [[ColorChooser alloc] init];
+    currentLoadingCell = NUMBER_OF_CELLS;
     
 }
 
@@ -49,8 +52,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-	//notificationCenter = [NSNotificationCenter defaultCenter];
+	
+    cellHeight = ([[UIScreen mainScreen] bounds].size.height - TOOLBAR_SIZE) / NUMBER_OF_CELLS;
     
 	randomizer = [[Randomizer alloc] init];
 	self.startInterval = 0;
@@ -62,10 +65,7 @@
 - (void)viewDidUnload
 {
 	[self setUpdaterButton:nil];
-	[self setIncrementerButton:nil];
-	[self setIncrementerButton:nil];
-    [self setCurrentPosition:nil];
-    [self setSpeed:nil];
+    [self setResetButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -93,8 +93,8 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
-	return YES;
+
+	return NO;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -103,7 +103,7 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return MAX_SCROLL_RANGE;
+    return NUMBER_OF_CELLS;
 }
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -114,76 +114,69 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         [cell.textLabel setTextAlignment:UITextAlignmentCenter];
     }
-    [cell.textLabel setText:[NSString stringWithFormat:@"%d", indexPath.row]];
+    if (NUMBER_OF_CELLS - indexPath.row > 0)
+    {
+    [cell.textLabel setText:[NSString stringWithFormat:@"%@", [self.cellsNames objectAtIndex:(NUMBER_OF_CELLS - indexPath.row - 1)]]];
+    }
     return cell;
 }
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    cellColor = [colorChooser getColorForRow:indexPath.row];
-    [cell setBackgroundColor:cellColor];
-}
 
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"Cell index path row: %d", indexPath.row);
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return cellHeight;
+}
 #pragma mark - Timeouts
 -(void)timeoutTriggered:(NSTimer*)theTimer {
     
 	[timer invalidate];
-	NSLog(@"timeoutTriggered: timeout");
 	currentStep += stepper;
+    UITableViewCell *currentCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:(NUMBER_OF_CELLS - currentStep) inSection:0]];
+    [currentCell setBackgroundColor:[colorChooser getColorForRow:(NUMBER_OF_CELLS - currentStep)]];
+    [self tableView:tableView willDisplayCell:currentCell forRowAtIndexPath:[NSIndexPath indexPathForRow:(NUMBER_OF_CELLS - currentStep) inSection:0] ];
+    [gHelper removeBlockingViewAndEnableViews];
     
-    if (currentStep < [self tableView:tableView numberOfRowsInSection:0])
+    if (currentStep >= NUMBER_OF_CELLS)
     {
-        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:currentStep inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];	
-        [gHelper removeBlockingViewAndEnableViews];
-        [self.currentPosition setText:[NSString stringWithFormat:@"%d", currentStep]];
+        [self.updaterButton setHidden:YES];
     }
-    else
-    {
-        [gHelper removeBlockingViewAndEnableViews];
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Finished" message:@"You have won" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alertView show];
-        [self.currentPosition setText:[NSString stringWithFormat:@"%d", START_POSITION]];
-    }
-    
 }
 
 #pragma mark - IBActions
 
 - (IBAction)updateAction:(id)sender {
     
+  
 	double randomTime = [randomizer randomizeWithInterval:self.startInterval and:self.endInterval];
 	NSLog(@"]random Time: %g", randomTime);
 	
 	timer = [NSTimer scheduledTimerWithTimeInterval:randomTime target:self selector:@selector(timeoutTriggered:) userInfo:nil repeats:NO];
-	[gHelper createAndAddBlockingViewToScreen:self.view withMessage:@"Please wait" andDisableViews:[NSArray arrayWithObjects:self.tableView, self.incrementerButton, self.decrementerButton, self.updaterButton , nil]];
+	[gHelper createAndAddBlockingViewToScreen:self.view withMessage:@"Please wait" andDisableViews:[NSArray arrayWithObjects:self.tableView, self.updaterButton, self.resetButton , nil]];
+
 }
 
-- (IBAction)breakAction:(id)sender {
-	
-	if (stepper > SCROLL_STEPPER_MINIMUM)
+- (IBAction)resetAction:(id)sender {
+    if ([self.updaterButton isHidden])
     {
-		stepper--;
-        [self.speed setText:[NSString stringWithFormat:@"%d", stepper]];
+        [self.updaterButton setHidden:NO];
     }
+    currentStep = 0;
+    [self.tableView reloadData];
 }
 
-- (IBAction)accelerateAction:(id)sender {
-    
-	if (stepper < SCROLL_STEPPER_MAXIMUM)
-    {
-		stepper++;
-        [self.speed setText:[NSString stringWithFormat:@"%d", stepper]];
-    }
-}
 
 #pragma mark - Alert view delegate
 
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    stepper = SCROLL_STEPPER_MINIMUM;
-    currentStep = START_POSITION;
-    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:currentStep inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];	
-    
+{    
     
 }
+
 @end

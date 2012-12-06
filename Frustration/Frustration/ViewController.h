@@ -15,29 +15,27 @@
 
 @interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate> {
 
-	NSNotificationCenter *notificationCenter;
 	NSTimer *timer;
 	Randomizer *randomizer;
 	NSInteger currentStep;
 	NSInteger stepper;
+    CGFloat cellHeight;
+    NSInteger currentLoadingCell;
 }
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) u_int32_t startInterval;
 @property (nonatomic, assign) u_int32_t endInterval;
 @property (nonatomic, strong) GraphicsHelper *gHelper;
 @property (weak, nonatomic) IBOutlet UIButton *updaterButton;
-@property (weak, nonatomic) IBOutlet UIButton *decrementerButton;
-@property (weak, nonatomic) IBOutlet UIButton *incrementerButton;
 @property (nonatomic, strong) ColorChooser *colorChooser;
-@property (weak, nonatomic) IBOutlet UILabel *currentPosition;
-@property (weak, nonatomic) IBOutlet UILabel *speed;
+@property (weak, nonatomic) IBOutlet UIButton *resetButton;
+@property (nonatomic, strong) NSArray *cellsNames;
 
 @property (nonatomic, strong) UIColor *cellColor;
 
 @property (nonatomic) CGFloat redPercentage;
 
 - (IBAction)updateAction:(id)sender;
-- (IBAction)breakAction:(id)sender;
-- (IBAction)accelerateAction:(id)sender;
+- (IBAction)resetAction:(id)sender;
 
 @end
