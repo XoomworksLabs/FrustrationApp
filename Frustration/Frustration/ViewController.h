@@ -6,8 +6,10 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import <stdlib.h>
 #import <UIKit/UIKit.h>
 #import "Randomizer.h"
+
 
 @interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
 
@@ -16,6 +18,8 @@
 	Randomizer *randomizer;
 }
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
+@property (nonatomic, assign) u_int32_t startInterval;
+@property (nonatomic, assign) u_int32_t endInterval;
 
 
 @property (nonatomic, strong) UIColor *cellColor;

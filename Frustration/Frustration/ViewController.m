@@ -8,20 +8,16 @@
 
 #import "ViewController.h"
 
+#define kTIMEOUT_TRIGGERED				@"TimeoutTriggered"
+
 @interface ViewController (PrivateCalls)
 -(void)timeoutTriggered:(NSTimer*)theTimer;
-@end
-
 -(UIColor *) getColorForRow:(NSInteger) row;
-
 @end
-
-
-#define kTIMEOUT_TRIGGERED				@"TimeoutTriggered"
 
 @implementation ViewController
 
-@synthesize tableView, cellColor, redPercentage;
+@synthesize tableView, cellColor, redPercentage, startInterval, endInterval;
 
 
 -(void)loadView
@@ -45,10 +41,8 @@
 	//notificationCenter = [NSNotificationCenter defaultCenter];
 		
 	randomizer = [[Randomizer alloc] init];
-
-	double randomTime = [randomizer randomizeWithInterval:0 and:10];
-	timer = [NSTimer scheduledTimerWithTimeInterval:randomTime target:self selector:@selector(timeoutTriggered:) userInfo:nil repeats:YES];
-	
+	self.startInterval = 0;
+	self.endInterval = 5;
 }
 
 - (void)viewDidUnload
@@ -125,7 +119,11 @@
 
 
 - (IBAction)updateAction:(id)sender {
-    
+
+	double randomTime = [randomizer randomizeWithInterval:self.startInterval and:self.endInterval];
+	NSLog(@"]random Time: %g", randomTime);
+	
+	timer = [NSTimer scheduledTimerWithTimeInterval:randomTime target:self selector:@selector(timeoutTriggered:) userInfo:nil repeats:YES];    
 }
 
 - (IBAction)breakAction:(id)sender {

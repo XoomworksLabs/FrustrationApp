@@ -7,16 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Randomizer.h"
+
+@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
+
+	NSNotificationCenter *notificationCenter;
+	NSTimer *timer;
+	Randomizer *randomizer;
+}
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
 
 <<<<<<< HEAD
-@interface ViewController : UIViewController {
-	
-	NSNotificationCenter *notificationCenter;
-}
 =======
-@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic, strong) UIColor *cellColor;
 
-@property (nonatomic, strong) IBOutlet UITableView *tableView;
->>>>>>> 26bd6f847ddcd84411534bbadd80dc46b445e16f
+@property (nonatomic) CGFloat redPercentage;
+
+- (IBAction)updateAction:(id)sender;
+- (IBAction)breakAction:(id)sender;
+- (IBAction)accelerateAction:(id)sender;
+>>>>>>> 90aec4d0dc70e64d874c77f78a5a61f0c74585ee
 
 @end

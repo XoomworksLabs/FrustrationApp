@@ -9,15 +9,19 @@
 #import "ViewController.h"
 
 <<<<<<< HEAD
+@interface ViewController (PrivateCalls)
+-(void)timeoutTriggered:(NSTimer*)theTimer;
+@end
+=======
 @interface ViewController ()
 
 -(UIColor *) getColorForRow:(NSInteger) row;
 
 @end
-=======
+
+>>>>>>> 90aec4d0dc70e64d874c77f78a5a61f0c74585ee
 
 #define kTIMEOUT_TRIGGERED				@"TimeoutTriggered"
->>>>>>> cb012112901e831e36df9fb5f07b6703926ac4ed
 
 @implementation ViewController
 
@@ -42,10 +46,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-	notificationCenter = [NSNotificationCenter defaultCenter];
+	//notificationCenter = [NSNotificationCenter defaultCenter];
 		
+	randomizer = [[Randomizer alloc] init];
+
+	double randomTime = [randomizer randomizeWithInterval:0 and:10];
+	timer = [NSTimer scheduledTimerWithTimeInterval:randomTime target:self selector:@selector(timeoutTriggered:) userInfo:nil repeats:YES];
 	
-	[notificationCenter addObserver:self selector:@selector(timeoutTriggered:) name:kTIMEOUT_TRIGGERED object:nil];
 }
 
 - (void)viewDidUnload
@@ -108,6 +115,15 @@
     [cell setBackgroundColor:cellColor];
 }
 
+<<<<<<< HEAD
+#pragma mark - Timeouts
+-(void)timeoutTriggered:(NSTimer*)theTimer {
+		
+	[timer invalidate];
+	NSLog(@"timeoutTriggered: timeout");
+}
+
+=======
 -(UIColor *) getColorForRow:(NSInteger) row
 {
     return [UIColor colorWithRed:0.5 green:0.1 blue:0.0 alpha:1.0];
@@ -123,4 +139,5 @@
 
 - (IBAction)accelerateAction:(id)sender {
 }
+>>>>>>> 90aec4d0dc70e64d874c77f78a5a61f0c74585ee
 @end
