@@ -13,7 +13,7 @@
 #import "ColorChooser.h"
 
 
-@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
+@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate> {
 
 	NSNotificationCenter *notificationCenter;
 	NSTimer *timer;
@@ -29,6 +29,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *decrementerButton;
 @property (weak, nonatomic) IBOutlet UIButton *incrementerButton;
 @property (nonatomic, strong) ColorChooser *colorChooser;
+@property (weak, nonatomic) IBOutlet UILabel *currentPosition;
+@property (weak, nonatomic) IBOutlet UILabel *speed;
 
 @property (nonatomic, strong) UIColor *cellColor;
 
