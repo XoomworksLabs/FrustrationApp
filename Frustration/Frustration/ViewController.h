@@ -18,4 +18,12 @@
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 
 
+@property (nonatomic, strong) UIColor *cellColor;
+
+@property (nonatomic) CGFloat redPercentage;
+
+- (IBAction)updateAction:(id)sender;
+- (IBAction)breakAction:(id)sender;
+- (IBAction)accelerateAction:(id)sender;
+
 @end

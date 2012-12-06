@@ -8,16 +8,11 @@
 
 #import "ViewController.h"
 
-<<<<<<< HEAD
 @interface ViewController ()
 
 -(UIColor *) getColorForRow:(NSInteger) row;
 
 @end
-=======
-
-#define kTIMEOUT_TRIGGERED				@"TimeoutTriggered"
->>>>>>> cb012112901e831e36df9fb5f07b6703926ac4ed
 
 @implementation ViewController
 
@@ -42,10 +37,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-	notificationCenter = [NSNotificationCenter defaultCenter];
-		
-	
-	[notificationCenter addObserver:self selector:@selector(timeoutTriggered:) name:kTIMEOUT_TRIGGERED object:nil];
 }
 
 - (void)viewDidUnload

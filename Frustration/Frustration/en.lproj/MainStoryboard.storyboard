@@ -33,6 +33,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="updateAction:" destination="2" eventType="touchUpInside" id="xxc-wg-Fra"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Lazy worker" lineBreakMode="tailTruncation" minimumFontSize="10" id="qoz-bY-NeB">
                                 <rect key="frame" x="338" y="8" width="92" height="21"/>
@@ -52,6 +55,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="accelerateAction:" destination="2" eventType="touchUpInside" id="6eC-Jb-mHh"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Tfx-3V-YX5">
                                 <rect key="frame" x="46" y="846" width="174" height="37"/>
@@ -64,6 +70,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="breakAction:" destination="2" eventType="touchUpInside" id="SRN-dw-n9f"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -80,6 +89,9 @@
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
+                <relationship kind="action" name="accelerateAction:"/>
+                <relationship kind="action" name="breakAction:"/>
+                <relationship kind="action" name="updateAction:"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>
