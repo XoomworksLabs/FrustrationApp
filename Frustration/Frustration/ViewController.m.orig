@@ -8,30 +8,43 @@
 
 #import "ViewController.h"
 
-<<<<<<< HEAD
+#define kTIMEOUT_TRIGGERED				@"TimeoutTriggered"
+#define MAX_SCROLL_RANGE				100
+#define SCROLL_STEPPER_MINIMUM			1
+#define SCROLL_STEPPER_MAXIMUM			15
+
 @interface ViewController (PrivateCalls)
 -(void)timeoutTriggered:(NSTimer*)theTimer;
-@end
-=======
-@interface ViewController ()
-
+<<<<<<< HEAD
 -(UIColor *) getColorForRow:(NSInteger) row;
+=======
 
+>>>>>>> 3d1d98ebc401f9958c52864a46948667f54bddad
 @end
-
->>>>>>> 90aec4d0dc70e64d874c77f78a5a61f0c74585ee
-
-#define kTIMEOUT_TRIGGERED				@"TimeoutTriggered"
 
 @implementation ViewController
+@synthesize incrementerButton;
+@synthesize updaterButton;
+@synthesize decrementerButton;
 
-@synthesize tableView, cellColor, redPercentage;
+<<<<<<< HEAD
+@synthesize tableView, cellColor, redPercentage, startInterval, endInterval , gHelper;
+=======
+@synthesize tableView, cellColor, redPercentage, colorChooser;
+>>>>>>> 3d1d98ebc401f9958c52864a46948667f54bddad
 
 
 -(void)loadView
 {
     [super loadView];
     redPercentage = 0;
+<<<<<<< HEAD
+	currentStep = 0;
+	stepper = 2;
+=======
+    colorChooser = [[ColorChooser alloc] init];
+
+>>>>>>> 3d1d98ebc401f9958c52864a46948667f54bddad
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,14 +62,22 @@
 	//notificationCenter = [NSNotificationCenter defaultCenter];
 		
 	randomizer = [[Randomizer alloc] init];
-
+<<<<<<< HEAD
+	self.startInterval = 0;
+	self.endInterval = 5;
+=======
 	double randomTime = [randomizer randomizeWithInterval:0 and:10];
 	timer = [NSTimer scheduledTimerWithTimeInterval:randomTime target:self selector:@selector(timeoutTriggered:) userInfo:nil repeats:YES];
+>>>>>>> 3d1d98ebc401f9958c52864a46948667f54bddad
 	
+	gHelper = [[GraphicsHelper alloc] init];
 }
 
 - (void)viewDidUnload
 {
+	[self setUpdaterButton:nil];
+	[self setIncrementerButton:nil];
+	[self setIncrementerButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -94,7 +115,7 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return MAX_SCROLL_RANGE;
 }
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -105,39 +126,45 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         
     }
-    
-    [cell.textLabel setText:@"Simple cell"];
     return cell;
 }
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    cellColor = [self getColorForRow:indexPath.row];
+    cellColor = [colorChooser getColorForRow:indexPath.row];
     [cell setBackgroundColor:cellColor];
 }
 
-<<<<<<< HEAD
 #pragma mark - Timeouts
 -(void)timeoutTriggered:(NSTimer*)theTimer {
 		
 	[timer invalidate];
 	NSLog(@"timeoutTriggered: timeout");
-}
-
-=======
--(UIColor *) getColorForRow:(NSInteger) row
-{
-    return [UIColor colorWithRed:0.5 green:0.1 blue:0.0 alpha:1.0];
+	if (currentStep >= MAX_SCROLL_RANGE) 
+		currentStep = 0;
+	
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:currentStep+=stepper inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];	
+	[gHelper removeBlockingViewAndEnableViews];
 }
 
 
 - (IBAction)updateAction:(id)sender {
-    
+
+	double randomTime = [randomizer randomizeWithInterval:self.startInterval and:self.endInterval];
+	NSLog(@"]random Time: %g", randomTime);
+	
+	timer = [NSTimer scheduledTimerWithTimeInterval:randomTime target:self selector:@selector(timeoutTriggered:) userInfo:nil repeats:NO];
+	[gHelper createAndAddBlockingViewToScreen:self.view withMessage:@"Please wait" andDisableViews:[NSArray arrayWithObjects:self.tableView, self.incrementerButton, self.decrementerButton, self.updaterButton , nil]];
 }
 
 - (IBAction)breakAction:(id)sender {
+	
+	if (stepper > SCROLL_STEPPER_MINIMUM)
+		stepper--;
 }
 
 - (IBAction)accelerateAction:(id)sender {
+
+	if (stepper < SCROLL_STEPPER_MAXIMUM)
+		stepper++;
 }
->>>>>>> 90aec4d0dc70e64d874c77f78a5a61f0c74585ee
 @end

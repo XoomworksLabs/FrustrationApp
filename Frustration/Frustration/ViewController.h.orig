@@ -6,19 +6,36 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import <stdlib.h>
 #import <UIKit/UIKit.h>
 #import "Randomizer.h"
+<<<<<<< HEAD
+#import "GraphicsHelper.h"
+
+=======
+#import "ColorChooser.h"
+>>>>>>> 3d1d98ebc401f9958c52864a46948667f54bddad
 
 @interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
 
 	NSNotificationCenter *notificationCenter;
 	NSTimer *timer;
 	Randomizer *randomizer;
+	NSInteger currentStep;
+	NSInteger stepper;
 }
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
-
 <<<<<<< HEAD
+@property (nonatomic, assign) u_int32_t startInterval;
+@property (nonatomic, assign) u_int32_t endInterval;
+@property (nonatomic, strong) GraphicsHelper *gHelper;
+@property (weak, nonatomic) IBOutlet UIButton *updaterButton;
+@property (weak, nonatomic) IBOutlet UIButton *decrementerButton;
+@property (weak, nonatomic) IBOutlet UIButton *incrementerButton;
 =======
+@property (nonatomic, strong) ColorChooser *colorChooser;
+>>>>>>> 3d1d98ebc401f9958c52864a46948667f54bddad
+
 @property (nonatomic, strong) UIColor *cellColor;
 
 @property (nonatomic) CGFloat redPercentage;
@@ -26,6 +43,5 @@
 - (IBAction)updateAction:(id)sender;
 - (IBAction)breakAction:(id)sender;
 - (IBAction)accelerateAction:(id)sender;
->>>>>>> 90aec4d0dc70e64d874c77f78a5a61f0c74585ee
 
 @end

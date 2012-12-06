@@ -15,7 +15,7 @@
 
 @interface ViewController (PrivateCalls)
 -(void)timeoutTriggered:(NSTimer*)theTimer;
--(UIColor *) getColorForRow:(NSInteger) row;
+
 @end
 
 @implementation ViewController
@@ -23,15 +23,16 @@
 @synthesize updaterButton;
 @synthesize decrementerButton;
 
-@synthesize tableView, cellColor, redPercentage, startInterval, endInterval , gHelper;
+@synthesize tableView, cellColor, redPercentage, colorChooser, gHelper;
+@synthesize startInterval, endInterval;
 
 
 -(void)loadView
 {
     [super loadView];
     redPercentage = 0;
-	currentStep = 0;
-	stepper = 2;
+    colorChooser = [[ColorChooser alloc] init];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -112,7 +113,7 @@
 }
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    cellColor = [self getColorForRow:indexPath.row];
+    cellColor = [colorChooser getColorForRow:indexPath.row];
     [cell setBackgroundColor:cellColor];
 }
 
@@ -126,14 +127,6 @@
 	
     [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:currentStep+=stepper inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];	
 	[gHelper removeBlockingViewAndEnableViews];
-}
-
--(UIColor *) getColorForRow:(NSInteger) row
-{
-    float red = (float) (row * 10) / 255.0;
-    CGFloat green = 1.0 - red;
-    NSLog(@"Red is: %f. Green is %f" ,  red, green);
-    return [UIColor colorWithRed:red green:green blue:0.0 alpha:1.0];
 }
 
 

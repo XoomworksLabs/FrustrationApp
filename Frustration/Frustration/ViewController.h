@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "Randomizer.h"
 #import "GraphicsHelper.h"
+#import "ColorChooser.h"
 
 
 @interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
@@ -27,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *updaterButton;
 @property (weak, nonatomic) IBOutlet UIButton *decrementerButton;
 @property (weak, nonatomic) IBOutlet UIButton *incrementerButton;
+@property (nonatomic, strong) ColorChooser *colorChooser;
 
 @property (nonatomic, strong) UIColor *cellColor;
 
