@@ -19,6 +19,7 @@
 @interface ViewController (PrivateCalls)
 
 -(void)timeoutTriggered:(NSTimer*)theTimer;
+-(void)createWebView;
 
 @end
 
@@ -33,7 +34,7 @@
 -(void)loadView
 {
     [super loadView];
-    cellsNames = [NSArray arrayWithObjects:@"http://google.com" , @"http://bing.com", @"http://apple.com", @"http://parse.com", @"http://yahoo.com", @"http://dell.com", nil];
+    cellsNames = [NSArray arrayWithObjects:@"http://www.google.com" , @"http://www.bing.com", @"http://www.apple.com", @"http://www.parse.com", @"http://www.livescore.com", @"http://www.dell.com", nil];
     currentStep = 0;
     stepper = 1;
     colorChooser = [[ColorChooser alloc] init];
@@ -124,6 +125,17 @@
     {
     //[cell.textLabel setText:[NSString stringWithFormat:@"%@", [self.cellsNames objectAtIndex:(NUMBER_OF_CELLS - indexPath.row - 1)]]];
     }
+    if (indexPath.row == (NUMBER_OF_CELLS - indexPath.row - 1))
+    {
+        UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        UIImage *image = [UIImage imageNamed:@"xoom.jpg"];
+        cell.imageView.image = image;
+        [cell.imageView addSubview:spinner];
+        [spinner startAnimating];
+        NSLog(@"Current cell width: %f", currentCell.frame.size.width );
+    }
+ 
+    
     return cell;
 }
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -136,17 +148,7 @@
     }
     else
     {
-        if ([cell isEqual:currentCell])
-        {
-            UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-            CGRect frame = currentCell.backgroundView.frame;
-            frame.origin.x = frame.size.width / 2;
-            [spinner setFrame:frame];
-            spinner.center = currentCell.backgroundView.center;
-            [spinner startAnimating];
-            [currentCell.imageView addSubview:spinner];
-            NSLog(@"Current cell width: %f", currentCell.frame.size.width );
-        }
+      
     }
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -164,14 +166,26 @@
 	currentStep += stepper;
    currentCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:(NUMBER_OF_CELLS - currentStep) inSection:0]];    
 
-    webView = [[UIWebView alloc] initWithFrame:currentCell.backgroundView.frame];
-    NSString *urlAddress = [cellsNames objectAtIndex:currentStep - 1];
-    NSURL *url = [NSURL URLWithString:urlAddress];
-    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
-    [webView loadRequest:requestObj];
-    [webView setDelegate:self];
-
+    [self createWebView];
     
+        UIView *view = [[UIView alloc] initWithFrame:currentCell.backgroundView.frame];
+    [view setBackgroundColor:[UIColor clearColor]];
+    [currentCell setBackgroundView:view];
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(360, 30, 0, 0)];
+    [view addSubview:spinner];
+    
+    
+    [UIView animateWithDuration:0.15f animations:^{
+        CGRect frame = [spinner frame];
+        frame.origin.x -= 20;
+        frame.size.width += 40;
+        frame.origin.y -= 20;
+        frame.size.height += 40;
+        [spinner setFrame:frame];
+        spinner.layer.cornerRadius = 3.0;
+        [spinner setBackgroundColor:[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.3]];
+        [spinner startAnimating];
+    }];
 
     
     [self tableView:tableView willDisplayCell:currentCell forRowAtIndexPath:[NSIndexPath indexPathForRow:(NUMBER_OF_CELLS - currentStep) inSection:0] ];
@@ -217,6 +231,16 @@
 - (void)webViewDidFinishLoad:(UIWebView *)wV
 {
     [currentCell setBackgroundView:wV];
+}
+-(void)createWebView
+{
+    webView = [[UIWebView alloc] initWithFrame:currentCell.backgroundView.frame];
+    NSString *urlAddress = [cellsNames objectAtIndex:currentStep - 1];
+    NSURL *url = [NSURL URLWithString:urlAddress];
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+    [webView loadRequest:requestObj];
+    [webView setDelegate:self];
+
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {    
