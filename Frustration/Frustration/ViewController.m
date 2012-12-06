@@ -5,19 +5,18 @@
 //  Created by Alexandru Gavrila on 12/6/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
+#define kTIMEOUT_TRIGGERED				@"TimeoutTriggered"
 
 #import "ViewController.h"
 
 @interface ViewController (PrivateCalls)
--(void)timeoutTriggered:(NSTimer*)theTimer;
-@end
 
+-(void)timeoutTriggered:(NSTimer*)theTimer;
 -(UIColor *) getColorForRow:(NSInteger) row;
 
 @end
 
 
-#define kTIMEOUT_TRIGGERED				@"TimeoutTriggered"
 
 @implementation ViewController
 
@@ -118,7 +117,7 @@
 
 -(UIColor *) getColorForRow:(NSInteger) row
 {
-    float red = (float) (row * 5) / 255.0;
+    float red = (float) (row * 10) / 255.0;
     CGFloat green = 1.0 - red;
     NSLog(@"Red is: %f. Green is %f" ,  red, green);
     return [UIColor colorWithRed:red green:green blue:0.0 alpha:1.0];
@@ -126,7 +125,7 @@
 
 
 - (IBAction)updateAction:(id)sender {
-    
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:rand() % 100 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 - (IBAction)breakAction:(id)sender {
