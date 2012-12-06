@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Randomizer.h"
 
 @interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
 
 	NSNotificationCenter *notificationCenter;
+	NSTimer *timer;
+	Randomizer *randomizer;
 }
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
+
 
 @end

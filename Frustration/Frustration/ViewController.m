@@ -8,6 +8,9 @@
 
 #import "ViewController.h"
 
+@interface ViewController (PrivateCalls)
+-(void)timeoutTriggered:(NSTimer*)theTimer;
+@end
 
 #define kTIMEOUT_TRIGGERED				@"TimeoutTriggered"
 
@@ -27,10 +30,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-	notificationCenter = [NSNotificationCenter defaultCenter];
+	//notificationCenter = [NSNotificationCenter defaultCenter];
 		
+	randomizer = [[Randomizer alloc] init];
+
+	double randomTime = [randomizer randomizeWithInterval:0 and:10];
+	timer = [NSTimer scheduledTimerWithTimeInterval:randomTime target:self selector:@selector(timeoutTriggered:) userInfo:nil repeats:YES];
 	
-	[notificationCenter addObserver:self selector:@selector(timeoutTriggered:) name:kTIMEOUT_TRIGGERED object:nil];
 }
 
 - (void)viewDidUnload
@@ -84,6 +90,13 @@
     }
     [cell.textLabel setText:@"Simple cell"];
     return cell;
+}
+
+#pragma mark - Timeouts
+-(void)timeoutTriggered:(NSTimer*)theTimer {
+		
+	[timer invalidate];
+	NSLog(@"timeoutTriggered: timeout");
 }
 
 @end
