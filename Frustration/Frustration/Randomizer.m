@@ -14,7 +14,9 @@
 	
 	double result = 0.0;
 	
-	result = (arc4random() % end) + start;
+	result = (arc4random() % end)/(float)(end)+ start;
+	NSLog(@"-->> %g", result);
+	
 	return result;
 }
 
