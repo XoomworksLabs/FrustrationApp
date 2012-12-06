@@ -8,14 +8,16 @@
 
 #import "ViewController.h"
 
+<<<<<<< HEAD
 @interface ViewController ()
 
 -(UIColor *) getColorForRow:(NSInteger) row;
 
 @end
-
+=======
 
 #define kTIMEOUT_TRIGGERED				@"TimeoutTriggered"
+>>>>>>> cb012112901e831e36df9fb5f07b6703926ac4ed
 
 @implementation ViewController
 

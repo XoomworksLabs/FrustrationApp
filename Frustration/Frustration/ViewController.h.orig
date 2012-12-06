@@ -1,0 +1,22 @@
+//
+//  ViewController.h
+//  Frustration
+//
+//  Created by Alexandru Gavrila on 12/6/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+<<<<<<< HEAD
+@interface ViewController : UIViewController {
+	
+	NSNotificationCenter *notificationCenter;
+}
+=======
+@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
+>>>>>>> 26bd6f847ddcd84411534bbadd80dc46b445e16f
+
+@end

@@ -14,9 +14,6 @@
 
 @end
 
-
-#define kTIMEOUT_TRIGGERED				@"TimeoutTriggered"
-
 @implementation ViewController
 
 @synthesize tableView, cellColor, redPercentage;
@@ -40,10 +37,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-	notificationCenter = [NSNotificationCenter defaultCenter];
-		
-	
-	[notificationCenter addObserver:self selector:@selector(timeoutTriggered:) name:kTIMEOUT_TRIGGERED object:nil];
 }
 
 - (void)viewDidUnload

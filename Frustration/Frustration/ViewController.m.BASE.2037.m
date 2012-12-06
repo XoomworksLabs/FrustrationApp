@@ -8,25 +8,9 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
-
--(UIColor *) getColorForRow:(NSInteger) row;
-
-@end
-
-
-#define kTIMEOUT_TRIGGERED				@"TimeoutTriggered"
-
 @implementation ViewController
 
-@synthesize tableView, cellColor, redPercentage;
-
-
--(void)loadView
-{
-    [super loadView];
-    redPercentage = 0;
-}
+@synthesize tableView;
 
 - (void)didReceiveMemoryWarning
 {
@@ -40,10 +24,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-	notificationCenter = [NSNotificationCenter defaultCenter];
-		
-	
-	[notificationCenter addObserver:self selector:@selector(timeoutTriggered:) name:kTIMEOUT_TRIGGERED object:nil];
 }
 
 - (void)viewDidUnload
@@ -94,31 +74,9 @@
     if (!cell)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        
     }
-    
     [cell.textLabel setText:@"Simple cell"];
     return cell;
 }
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    cellColor = [self getColorForRow:indexPath.row];
-    [cell setBackgroundColor:cellColor];
-}
 
--(UIColor *) getColorForRow:(NSInteger) row
-{
-    return [UIColor colorWithRed:0.5 green:0.1 blue:0.0 alpha:1.0];
-}
-
-
-- (IBAction)updateAction:(id)sender {
-    
-}
-
-- (IBAction)breakAction:(id)sender {
-}
-
-- (IBAction)accelerateAction:(id)sender {
-}
 @end
