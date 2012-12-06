@@ -12,7 +12,13 @@
 
 -(UIColor *) getColorForRow:(NSInteger) row
 {
-    float red = (float) (row * 10) / 255.0;
+    int magicColorNumber = row * 5;
+    if (magicColorNumber >= 255)
+    {
+        magicColorNumber = magicColorNumber % 255;
+    }
+
+    float red = (float) (magicColorNumber) / 255.0;
     CGFloat green = 1.0 - red;
     NSLog(@"Red is: %f. Green is %f" ,  red, green);
     return [UIColor colorWithRed:red green:green blue:0.0 alpha:1.0];
