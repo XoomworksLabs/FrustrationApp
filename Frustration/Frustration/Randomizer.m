@@ -10,6 +10,8 @@
 
 @interface Randomizer(PrivateCalls)
 -(double)subRandomize:(int *)interval;
+-(BOOL)checkIndexSpaceByIndex:(int )index;
+-(BOOL)allTaken;
 @end
 
 
@@ -30,6 +32,9 @@
 		timeIntervalF[0] = 5000;	timeIntervalF[1] = 5000;	
 		
 		onceLong = NO;
+
+		maxIndexSpace = MAX_SECTIONS;
+		[self reset];
 	}
 	return self;
 }
@@ -37,6 +42,9 @@
 #pragma mark - randomization
 -(void)reset {
 	
+	for (int i = 0; i < maxIndexSpace; i++) {
+		indexSpace[i] = NO;
+	}	
 	onceLong = NO;
 }
 -(double)subRandomize:(int *)interval {
@@ -73,8 +81,27 @@
 	result = (arc4random() % end)/(float)(end)+ start;
 	NSLog(@"-->> %g", result);
 */
+	int selector = 0;
 	
-	int selector = (arc4random() % MAX_SECTIONS);
+	selector = (arc4random() % MAX_SECTIONS);
+	
+	//	Mark the indexSpace
+	//
+	if (![self checkIndexSpaceByIndex:selector]) {
+			
+		indexSpace[selector] = YES;
+	} else {
+		
+		do {
+			
+			selector = (arc4random() % MAX_SECTIONS);
+			NSLog(@"-->>reselect selector: %i", selector);
+			
+		} while (([self checkIndexSpaceByIndex:selector] == YES) && (![self allTaken]));
+		
+		indexSpace[selector] = YES;
+	}
+		
 		
 	NSLog(@"-->>selector: %i", selector);
 	switch (selector) {
@@ -110,6 +137,28 @@
 	}
 	
 	return result;
+}
+
+-(BOOL)checkIndexSpaceByIndex:(int )index {
+	
+	if (!(index >= 0 && index < maxIndexSpace))
+		return NO;
+	
+	return indexSpace[index];
+}
+
+-(BOOL)allTaken {
+	
+	int taken = 0;
+	for (int i = 0; i < maxIndexSpace; i++) {
+		
+		if (indexSpace[i]) taken++;
+	}
+	
+	if (taken == maxIndexSpace)
+		return YES;
+	
+	return NO;
 }
 
 @end
