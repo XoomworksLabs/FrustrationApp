@@ -14,6 +14,12 @@
 #import "BButton.h"
 #import <QuartzCore/QuartzCore.h>
 
+typedef enum viewControllerTypes
+{
+    ViewControllerType_ONLINE,
+    ViewControllerType_OFFLINE
+    
+} ViewControllerType;
 
 @interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UIWebViewDelegate> {
 
@@ -25,6 +31,8 @@
     NSInteger currentLoadingCell;
     BOOL reset;
 }
+
+
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) u_int32_t startInterval;
 @property (nonatomic, assign) u_int32_t endInterval;
@@ -35,7 +43,10 @@
 @property (nonatomic, strong) NSArray *cellsNames;
 @property (nonatomic, strong) GraphicsHelper *cellBlockingView;
 @property (nonatomic, strong) UIWebView *webView;
+@property (nonatomic, strong) UIView *colorView;
 @property (nonatomic, weak) UITableViewCell *currentCell;
+@property (nonatomic) ViewControllerType viewControllerType;
+
 
 @property (nonatomic, strong) UIColor *cellColor;
 

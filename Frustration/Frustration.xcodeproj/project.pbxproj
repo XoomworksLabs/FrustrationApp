@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		910E37511670A13300E04B30 /* ColorChooser.m in Sources */ = {isa = PBXBuildFile; fileRef = 910E37501670A13300E04B30 /* ColorChooser.m */; };
-		910E37591670B77400E04B30 /* BuilderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 910E37581670B77400E04B30 /* BuilderViewController.m */; };
 		910E37781670E92300E04B30 /* BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 910E37771670E92300E04B30 /* BButton.m */; };
 		910E377C1670FA7900E04B30 /* xoom.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 910E377B1670FA7900E04B30 /* xoom.jpg */; };
+		91195B061671D497009B37A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91195B051671D497009B37A1 /* MainViewController.m */; };
+		91195B0B1671D716009B37A1 /* BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91195B0A1671D716009B37A1 /* BackgroundView.m */; };
+		91195B101671D753009B37A1 /* CommonUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 91195B0F1671D753009B37A1 /* CommonUI.m */; };
 		BC8B5F5B1670A5A900D83BB3 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		BC8B5F5C1670A96E00D83BB3 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		BC94DAAB16708B8600227223 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC94DAAA16708B8600227223 /* UIKit.framework */; };
@@ -44,11 +46,15 @@
 /* Begin PBXFileReference section */
 		910E374F1670A13300E04B30 /* ColorChooser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorChooser.h; sourceTree = "<group>"; };
 		910E37501670A13300E04B30 /* ColorChooser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorChooser.m; sourceTree = "<group>"; };
-		910E37571670B77400E04B30 /* BuilderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuilderViewController.h; sourceTree = "<group>"; };
-		910E37581670B77400E04B30 /* BuilderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuilderViewController.m; sourceTree = "<group>"; };
 		910E37761670E92300E04B30 /* BButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BButton.h; sourceTree = "<group>"; };
 		910E37771670E92300E04B30 /* BButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BButton.m; sourceTree = "<group>"; };
 		910E377B1670FA7900E04B30 /* xoom.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = xoom.jpg; sourceTree = "<group>"; };
+		91195B041671D497009B37A1 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		91195B051671D497009B37A1 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		91195B091671D716009B37A1 /* BackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundView.h; sourceTree = "<group>"; };
+		91195B0A1671D716009B37A1 /* BackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundView.m; sourceTree = "<group>"; };
+		91195B0E1671D753009B37A1 /* CommonUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUI.h; sourceTree = "<group>"; };
+		91195B0F1671D753009B37A1 /* CommonUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUI.m; sourceTree = "<group>"; };
 		BC94DAA616708B8600227223 /* Frustration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Frustration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC94DAAA16708B8600227223 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BC94DAAC16708B8600227223 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -98,6 +104,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		91195B071671D503009B37A1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BC94DABF16708B8700227223 /* ViewController.h */,
+				BC94DAC016708B8700227223 /* ViewController.m */,
+				91195B041671D497009B37A1 /* MainViewController.h */,
+				91195B051671D497009B37A1 /* MainViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		91195B081671D523009B37A1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				910E377B1670FA7900E04B30 /* xoom.jpg */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		91195B0C1671D719009B37A1 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				91195B0E1671D753009B37A1 /* CommonUI.h */,
+				91195B0F1671D753009B37A1 /* CommonUI.m */,
+				910E374F1670A13300E04B30 /* ColorChooser.h */,
+				910E37501670A13300E04B30 /* ColorChooser.m */,
+				91195B091671D716009B37A1 /* BackgroundView.h */,
+				91195B0A1671D716009B37A1 /* BackgroundView.m */,
+				910E37761670E92300E04B30 /* BButton.h */,
+				910E37771670E92300E04B30 /* BButton.m */,
+				BCE91A051670AB460028E5FD /* GraphicsHelper.h */,
+				BCE91A061670AB460028E5FD /* GraphicsHelper.m */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
 		BC94DA9B16708B8600227223 = {
 			isa = PBXGroup;
 			children = (
@@ -131,16 +173,14 @@
 		BC94DAB016708B8600227223 /* Frustration */ = {
 			isa = PBXGroup;
 			children = (
-				910E377B1670FA7900E04B30 /* xoom.jpg */,
+				91195B0C1671D719009B37A1 /* UI */,
+				91195B081671D523009B37A1 /* Resources */,
+				91195B071671D503009B37A1 /* ViewControllers */,
 				BC94DAE31670946C00227223 /* Classes */,
 				BC94DAB916708B8700227223 /* AppDelegate.h */,
 				BC94DABA16708B8700227223 /* AppDelegate.m */,
 				BC94DABC16708B8700227223 /* MainStoryboard.storyboard */,
-				BC94DABF16708B8700227223 /* ViewController.h */,
-				BC94DAC016708B8700227223 /* ViewController.m */,
 				BC94DAB116708B8600227223 /* Supporting Files */,
-				910E37571670B77400E04B30 /* BuilderViewController.h */,
-				910E37581670B77400E04B30 /* BuilderViewController.m */,
 			);
 			path = Frustration;
 			sourceTree = "<group>";
@@ -178,14 +218,8 @@
 		BC94DAE31670946C00227223 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				910E37761670E92300E04B30 /* BButton.h */,
-				910E37771670E92300E04B30 /* BButton.m */,
-				BCE91A051670AB460028E5FD /* GraphicsHelper.h */,
-				BCE91A061670AB460028E5FD /* GraphicsHelper.m */,
 				BC94DADF1670946400227223 /* Randomizer.h */,
 				BC94DAE01670946400227223 /* Randomizer.m */,
-				910E374F1670A13300E04B30 /* ColorChooser.h */,
-				910E37501670A13300E04B30 /* ColorChooser.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -304,8 +338,10 @@
 				BC8B5F5C1670A96E00D83BB3 /* (null) in Sources */,
 				910E37511670A13300E04B30 /* ColorChooser.m in Sources */,
 				BCE91A071670AB460028E5FD /* GraphicsHelper.m in Sources */,
-				910E37591670B77400E04B30 /* BuilderViewController.m in Sources */,
 				910E37781670E92300E04B30 /* BButton.m in Sources */,
+				91195B061671D497009B37A1 /* MainViewController.m in Sources */,
+				91195B0B1671D716009B37A1 /* BackgroundView.m in Sources */,
+				91195B101671D753009B37A1 /* CommonUI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,11 +443,15 @@
 		BC94DADA16708B8700227223 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mihail Popa (X28A45YS8W)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mihail Popa (X28A45YS8W)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Frustration/Frustration-Prefix.pch";
 				INFOPLIST_FILE = "Frustration/Frustration-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "C6B9351A-D445-409D-9295-204300473938";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C6B9351A-D445-409D-9295-204300473938";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -419,11 +459,15 @@
 		BC94DADB16708B8700227223 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mihail Popa (X28A45YS8W)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mihail Popa (X28A45YS8W)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Frustration/Frustration-Prefix.pch";
 				INFOPLIST_FILE = "Frustration/Frustration-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "C6B9351A-D445-409D-9295-204300473938";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C6B9351A-D445-409D-9295-204300473938";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

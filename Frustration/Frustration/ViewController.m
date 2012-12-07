@@ -21,15 +21,17 @@
 -(void)timeoutTriggered:(NSTimer*)theTimer;
 -(void)createWebView;
 -(void)addSpinner;
+-(void)createColorView;
 
 @end
 
 @implementation ViewController
 @synthesize resetButton;
 @synthesize updaterButton;
+@synthesize viewControllerType;
 
 @synthesize tableView, cellColor, redPercentage, colorChooser, gHelper;
-@synthesize startInterval, endInterval, cellsNames, cellBlockingView, webView, currentCell;
+@synthesize startInterval, endInterval, cellsNames, cellBlockingView, webView, currentCell, colorView;
 
 
 -(void)loadView
@@ -41,6 +43,7 @@
     colorChooser = [[ColorChooser alloc] init];
     currentLoadingCell = NUMBER_OF_CELLS;
     reset = NO;
+    
     
 }
 
@@ -55,8 +58,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
-    cellHeight = ([[UIScreen mainScreen] bounds].size.height - TOOLBAR_SIZE) / NUMBER_OF_CELLS;
+	CGFloat navigationBarSize = self.navigationController.navigationBar.frame.size.height;
+    cellHeight = ([[UIScreen mainScreen] bounds].size.height - TOOLBAR_SIZE - navigationBarSize) / NUMBER_OF_CELLS;
     [self.tableView setBackgroundColor:[UIColor clearColor]];
     
 	randomizer = [[Randomizer alloc] init];
@@ -101,7 +104,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-
+    
 	return NO;
 }
 
@@ -122,21 +125,6 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         [cell.textLabel setTextAlignment:UITextAlignmentCenter];
     }
-    if (NUMBER_OF_CELLS - indexPath.row > 0)
-    {
-    //[cell.textLabel setText:[NSString stringWithFormat:@"%@", [self.cellsNames objectAtIndex:(NUMBER_OF_CELLS - indexPath.row - 1)]]];
-    }
-    if (indexPath.row == (NUMBER_OF_CELLS - indexPath.row - 1))
-    {
-        UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        UIImage *image = [UIImage imageNamed:@"xoom.jpg"];
-        cell.imageView.image = image;
-        [cell.imageView addSubview:spinner];
-        [spinner startAnimating];
-        NSLog(@"Current cell width: %f", currentCell.frame.size.width );
-    }
- 
-    
     return cell;
 }
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -149,7 +137,7 @@
     }
     else
     {
-      
+        
     }
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -165,15 +153,23 @@
     
 	[timer invalidate];
 	currentStep += stepper;
-   currentCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:(NUMBER_OF_CELLS - currentStep) inSection:0]];    
-
-    [self createWebView];
+    currentCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:(NUMBER_OF_CELLS - currentStep) inSection:0]];    
     
-    [self addSpinner];
-
+    
+    if (viewControllerType == ViewControllerType_ONLINE)
+    {
+        [self createWebView];
+        
+        [self addSpinner];
+        
+    }
+    else if (viewControllerType == ViewControllerType_OFFLINE)
+    {
+        [self createColorView];
+    }
     
     [self tableView:tableView willDisplayCell:currentCell forRowAtIndexPath:[NSIndexPath indexPathForRow:(NUMBER_OF_CELLS - currentStep) inSection:0] ];
-
+    
     [gHelper removeBlockingViewAndEnableViews];
     
     if (currentStep >= NUMBER_OF_CELLS)
@@ -195,11 +191,11 @@
 	
 	timer = [NSTimer scheduledTimerWithTimeInterval:randomTime target:self selector:@selector(timeoutTriggered:) userInfo:nil repeats:NO];
 	[gHelper createAndAddBlockingViewToScreen:self.view withMessage:@"Please wait" andDisableViews:[NSArray arrayWithObjects:self.tableView, self.updaterButton, self.resetButton , nil]];
-
+    
 }
 
 - (IBAction)resetAction:(id)sender {
-
+    
 	[randomizer reset];
     if ([self.updaterButton isHidden] || ![self.updaterButton isEnabled])
     {
@@ -226,7 +222,13 @@
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [webView loadRequest:requestObj];
     [webView setDelegate:self];
-
+    
+}
+-(void)createColorView
+{
+    colorView = [[UIView alloc] initWithFrame:currentCell.backgroundView.frame];
+    [colorView setBackgroundColor:[colorChooser getColorForRow:currentStep - 1]];
+    [currentCell setBackgroundView:colorView];
 }
 -(void)addSpinner
 {
@@ -248,10 +250,6 @@
         [spinner setBackgroundColor:[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.3]];
         [spinner startAnimating];
     }];
-}
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{    
-    
 }
 
 @end
