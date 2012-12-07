@@ -19,6 +19,8 @@
 @interface ViewController (PrivateCalls)
 
 -(void)timeoutTriggered:(NSTimer*)theTimer;
+-(void)createWebView;
+-(void)addSpinner;
 
 @end
 
@@ -27,17 +29,18 @@
 @synthesize updaterButton;
 
 @synthesize tableView, cellColor, redPercentage, colorChooser, gHelper;
-@synthesize startInterval, endInterval, cellsNames;
+@synthesize startInterval, endInterval, cellsNames, cellBlockingView, webView, currentCell;
 
 
 -(void)loadView
 {
     [super loadView];
-    cellsNames = [NSArray arrayWithObjects:@"Very low energy" , @"Low energy", @"Enough energy", @"Medium energy", @"High energy", @"Very high energy", nil];
+    cellsNames = [NSArray arrayWithObjects:@"http://www.google.com" , @"http://www.bing.com", @"http://www.apple.com", @"http://www.parse.com", @"http://www.livescore.com", @"http://www.dell.com", nil];
     currentStep = 0;
     stepper = 1;
     colorChooser = [[ColorChooser alloc] init];
     currentLoadingCell = NUMBER_OF_CELLS;
+    reset = NO;
     
 }
 
@@ -54,12 +57,17 @@
     [super viewDidLoad];
 	
     cellHeight = ([[UIScreen mainScreen] bounds].size.height - TOOLBAR_SIZE) / NUMBER_OF_CELLS;
+    [self.tableView setBackgroundColor:[UIColor clearColor]];
     
 	randomizer = [[Randomizer alloc] init];
 	self.startInterval = 0;
 	self.endInterval = 5;
 	
+    [self.updaterButton setType:BButtonTypeSuccess];
+    [self.resetButton setType:BButtonTypeDanger];
+    
 	gHelper = [[GraphicsHelper alloc] init];
+    cellBlockingView = [[GraphicsHelper alloc] init];
 }
 
 - (void)viewDidUnload
@@ -116,13 +124,33 @@
     }
     if (NUMBER_OF_CELLS - indexPath.row > 0)
     {
-    [cell.textLabel setText:[NSString stringWithFormat:@"%@", [self.cellsNames objectAtIndex:(NUMBER_OF_CELLS - indexPath.row - 1)]]];
+    //[cell.textLabel setText:[NSString stringWithFormat:@"%@", [self.cellsNames objectAtIndex:(NUMBER_OF_CELLS - indexPath.row - 1)]]];
     }
+    if (indexPath.row == (NUMBER_OF_CELLS - indexPath.row - 1))
+    {
+        UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        UIImage *image = [UIImage imageNamed:@"xoom.jpg"];
+        cell.imageView.image = image;
+        [cell.imageView addSubview:spinner];
+        [spinner startAnimating];
+        NSLog(@"Current cell width: %f", currentCell.frame.size.width );
+    }
+ 
+    
     return cell;
 }
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    
+    
+    if (reset == YES)
+    {
+        [cell setBackgroundView:nil];
+    }
+    else
+    {
+      
+    }
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -137,9 +165,15 @@
     
 	[timer invalidate];
 	currentStep += stepper;
-    UITableViewCell *currentCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:(NUMBER_OF_CELLS - currentStep) inSection:0]];
-    [currentCell setBackgroundColor:[colorChooser getColorForRow:(NUMBER_OF_CELLS - currentStep)]];
+   currentCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:(NUMBER_OF_CELLS - currentStep) inSection:0]];    
+
+    [self createWebView];
+    
+    [self addSpinner];
+
+    
     [self tableView:tableView willDisplayCell:currentCell forRowAtIndexPath:[NSIndexPath indexPathForRow:(NUMBER_OF_CELLS - currentStep) inSection:0] ];
+
     [gHelper removeBlockingViewAndEnableViews];
     
     if (currentStep >= NUMBER_OF_CELLS)
@@ -152,7 +186,10 @@
 
 - (IBAction)updateAction:(id)sender {
     
-  
+    if (reset == YES)
+    {
+        reset = NO;
+    }
 	double randomTime = [randomizer randomizeWithInterval];
 	NSLog(@"]random Time: %g", randomTime);
 	
@@ -164,18 +201,54 @@
 - (IBAction)resetAction:(id)sender {
 
 	[randomizer reset];
-    if ([self.updaterButton isHidden])
+    if ([self.updaterButton isHidden] || ![self.updaterButton isEnabled])
     {
         [self.updaterButton setHidden:NO];
+        [self.updaterButton setEnabled:YES];
     }
     currentStep = 0;
+    reset = YES;
     [self.tableView reloadData];
 }
 
 
 #pragma mark - Alert view delegate
+- (void)webViewDidFinishLoad:(UIWebView *)wV
+{
+    [currentCell setBackgroundView:wV];
+    [self.updaterButton setEnabled:YES];
+}
+-(void)createWebView
+{
+    webView = [[UIWebView alloc] initWithFrame:currentCell.backgroundView.frame];
+    NSString *urlAddress = [cellsNames objectAtIndex:currentStep - 1];
+    NSURL *url = [NSURL URLWithString:urlAddress];
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+    [webView loadRequest:requestObj];
+    [webView setDelegate:self];
 
-
+}
+-(void)addSpinner
+{
+    UIView *view = [[UIView alloc] initWithFrame:currentCell.backgroundView.frame];
+    [view setBackgroundColor:[UIColor clearColor]];
+    [currentCell setBackgroundView:view];
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(360, 30, 0, 0)];
+    [view addSubview:spinner];
+    [self.updaterButton setEnabled:NO];
+    
+    [UIView animateWithDuration:0.15f animations:^{
+        CGRect frame = [spinner frame];
+        frame.origin.x -= 20;
+        frame.size.width += 40;
+        frame.origin.y -= 20;
+        frame.size.height += 40;
+        [spinner setFrame:frame];
+        spinner.layer.cornerRadius = 3.0;
+        [spinner setBackgroundColor:[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.3]];
+        [spinner startAnimating];
+    }];
+}
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {    
     

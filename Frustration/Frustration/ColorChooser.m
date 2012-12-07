@@ -39,6 +39,38 @@
     return [UIColor colorWithRed:redColorValue green:greenColorValue blue:0.0 alpha:1.0];
 }
 
+-(UIColor *) getCleanColorForRow:(NSInteger ) row
+{
+    UIColor *color;
+    
+    switch (row % 6) {
+        case 0:
+            color = [UIColor redColor];
+            break;
+        case 1:
+            color = [UIColor orangeColor];
+            
+            break;
+        case 2:
+            color = [UIColor yellowColor];
+            break;
+        case 3:
+            color = [UIColor greenColor];
+            break;
+        case 4:
+            color = [UIColor blueColor];
+            break;
+        case 5:
+            color = [UIColor purpleColor];
+            break;
+        default:
+            break;
+    }
+    
+    return color;
+
+}
+
 
 
 @end

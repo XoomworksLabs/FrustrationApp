@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		910E37511670A13300E04B30 /* ColorChooser.m in Sources */ = {isa = PBXBuildFile; fileRef = 910E37501670A13300E04B30 /* ColorChooser.m */; };
 		910E37591670B77400E04B30 /* BuilderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 910E37581670B77400E04B30 /* BuilderViewController.m */; };
+		910E37781670E92300E04B30 /* BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 910E37771670E92300E04B30 /* BButton.m */; };
+		910E377C1670FA7900E04B30 /* xoom.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 910E377B1670FA7900E04B30 /* xoom.jpg */; };
 		BC8B5F5B1670A5A900D83BB3 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		BC8B5F5C1670A96E00D83BB3 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		BC94DAAB16708B8600227223 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC94DAAA16708B8600227223 /* UIKit.framework */; };
@@ -44,6 +46,9 @@
 		910E37501670A13300E04B30 /* ColorChooser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorChooser.m; sourceTree = "<group>"; };
 		910E37571670B77400E04B30 /* BuilderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuilderViewController.h; sourceTree = "<group>"; };
 		910E37581670B77400E04B30 /* BuilderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuilderViewController.m; sourceTree = "<group>"; };
+		910E37761670E92300E04B30 /* BButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BButton.h; sourceTree = "<group>"; };
+		910E37771670E92300E04B30 /* BButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BButton.m; sourceTree = "<group>"; };
+		910E377B1670FA7900E04B30 /* xoom.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = xoom.jpg; sourceTree = "<group>"; };
 		BC94DAA616708B8600227223 /* Frustration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Frustration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC94DAAA16708B8600227223 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BC94DAAC16708B8600227223 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -126,6 +131,7 @@
 		BC94DAB016708B8600227223 /* Frustration */ = {
 			isa = PBXGroup;
 			children = (
+				910E377B1670FA7900E04B30 /* xoom.jpg */,
 				BC94DAE31670946C00227223 /* Classes */,
 				BC94DAB916708B8700227223 /* AppDelegate.h */,
 				BC94DABA16708B8700227223 /* AppDelegate.m */,
@@ -172,6 +178,8 @@
 		BC94DAE31670946C00227223 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				910E37761670E92300E04B30 /* BButton.h */,
+				910E37771670E92300E04B30 /* BButton.m */,
 				BCE91A051670AB460028E5FD /* GraphicsHelper.h */,
 				BCE91A061670AB460028E5FD /* GraphicsHelper.m */,
 				BC94DADF1670946400227223 /* Randomizer.h */,
@@ -254,6 +262,7 @@
 			files = (
 				BC94DAB516708B8700227223 /* InfoPlist.strings in Resources */,
 				BC94DABE16708B8700227223 /* MainStoryboard.storyboard in Resources */,
+				910E377C1670FA7900E04B30 /* xoom.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +305,7 @@
 				910E37511670A13300E04B30 /* ColorChooser.m in Sources */,
 				BCE91A071670AB460028E5FD /* GraphicsHelper.m in Sources */,
 				910E37591670B77400E04B30 /* BuilderViewController.m in Sources */,
+				910E37781670E92300E04B30 /* BButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

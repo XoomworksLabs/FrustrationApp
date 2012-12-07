@@ -11,9 +11,11 @@
 #import "Randomizer.h"
 #import "GraphicsHelper.h"
 #import "ColorChooser.h"
+#import "BButton.h"
+#import <QuartzCore/QuartzCore.h>
 
 
-@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate> {
+@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UIWebViewDelegate> {
 
 	NSTimer *timer;
 	Randomizer *randomizer;
@@ -21,15 +23,19 @@
 	NSInteger stepper;
     CGFloat cellHeight;
     NSInteger currentLoadingCell;
+    BOOL reset;
 }
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) u_int32_t startInterval;
 @property (nonatomic, assign) u_int32_t endInterval;
 @property (nonatomic, strong) GraphicsHelper *gHelper;
-@property (weak, nonatomic) IBOutlet UIButton *updaterButton;
+@property (weak, nonatomic) IBOutlet BButton *updaterButton;
 @property (nonatomic, strong) ColorChooser *colorChooser;
-@property (weak, nonatomic) IBOutlet UIButton *resetButton;
+@property (weak, nonatomic) IBOutlet BButton *resetButton;
 @property (nonatomic, strong) NSArray *cellsNames;
+@property (nonatomic, strong) GraphicsHelper *cellBlockingView;
+@property (nonatomic, strong) UIWebView *webView;
+@property (nonatomic, weak) UITableViewCell *currentCell;
 
 @property (nonatomic, strong) UIColor *cellColor;
 
