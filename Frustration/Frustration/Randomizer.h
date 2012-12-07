@@ -20,6 +20,9 @@
 	int timeIntervalF[PAIR_ELEMENTS];	
 	
 	BOOL onceLong;
+	
+	BOOL indexSpace[MAX_SECTIONS];
+	int  maxIndexSpace;
 }
 
 -(double)randomizeWithInterval;
