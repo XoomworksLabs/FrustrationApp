@@ -23,13 +23,21 @@
 	self = [super init];
 	
 	if (self) {
-		
+/*		
 		timeIntervalA[0] = 50;		timeIntervalA[1] = 150;
 		timeIntervalB[0] = 150;		timeIntervalB[1] = 300;
 		timeIntervalC[0] = 300;		timeIntervalC[1] = 600;
 		timeIntervalD[0] = 600;		timeIntervalD[1] = 1000;
 		timeIntervalE[0] = 1000;	timeIntervalE[1] = 2000;
 		timeIntervalF[0] = 5000;	timeIntervalF[1] = 5000;	
+*/
+		
+		timeIntervalA[0] = 50;		timeIntervalA[1] = 150;
+		timeIntervalB[0] = 500;		timeIntervalB[1] = 700;
+		timeIntervalC[0] = 1000;	timeIntervalC[1] = 1200;
+		timeIntervalD[0] = 5000;	timeIntervalD[1] = 5000;
+		timeIntervalE[0] = 7000;	timeIntervalE[1] = 7000;
+		timeIntervalF[0] = 10000;	timeIntervalF[1] = 10000;	
 		
 		onceLong = NO;
 
