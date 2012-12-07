@@ -45,23 +45,23 @@
     
     switch (row % 6) {
         case 0:
-            color = [UIColor redColor];
+            color = [UIColor colorWithRed:0.8 green:0.2 blue:0.0 alpha:0.8];
             break;
         case 1:
-            color = [UIColor orangeColor];
-            
+            color = [UIColor colorWithRed:0.8 green:0.0 blue:0.2 alpha:0.8];
             break;
         case 2:
-            color = [UIColor yellowColor];
+            color = [UIColor colorWithRed:0.7 green:0.0 blue:0.4 alpha:0.8];
             break;
         case 3:
-            color = [UIColor greenColor];
+            color = [UIColor colorWithRed:0.3 green:0.7 blue:0.0 alpha:0.8];
             break;
         case 4:
-            color = [UIColor blueColor];
+                color = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:0.8];
             break;
         case 5:
-            color = [UIColor purpleColor];
+            color = [UIColor colorWithRed:1.0 green:1.0 blue:0.0 alpha:0.8];
+ 
             break;
         default:
             break;

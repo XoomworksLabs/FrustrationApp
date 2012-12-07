@@ -43,8 +43,6 @@
     colorChooser = [[ColorChooser alloc] init];
     currentLoadingCell = NUMBER_OF_CELLS;
     reset = NO;
-    
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -227,7 +225,7 @@
 -(void)createColorView
 {
     colorView = [[UIView alloc] initWithFrame:currentCell.backgroundView.frame];
-    [colorView setBackgroundColor:[colorChooser getColorForRow:currentStep - 1]];
+    [colorView setBackgroundColor:[colorChooser getCleanColorForRow:currentStep - 1]];
     [currentCell setBackgroundView:colorView];
 }
 -(void)addSpinner
