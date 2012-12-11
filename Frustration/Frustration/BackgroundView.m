@@ -26,14 +26,14 @@
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    UIColor *lightColor = [UIColor colorWithRed:0.6 green:0.6 
-                                             blue:0.6 alpha:0.4]; 
-    UIColor *darkColor = [UIColor colorWithRed:0.2 green:0.2
-                                                 blue:0.2 alpha:1.0];
+    UIColor *lightColor = [UIColor colorWithRed:0.7 green:0.7 
+                                             blue:0.7 alpha:0.4]; 
+    UIColor *darkColor = [UIColor colorWithRed:120/255.0 green:120/255.0
+                                                 blue:94/255.0 alpha:1.0];
     
     CGRect paperRect = self.bounds;
     
-    drawLinearGradient(context, paperRect, darkColor, lightColor);
+    drawLinearGradient(context, paperRect, lightColor, darkColor);
 }
 
 

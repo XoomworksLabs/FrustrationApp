@@ -56,6 +56,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //[self.navigationController.navigationBar setTintColor:[UIColor blueColor]];
 	CGFloat navigationBarSize = self.navigationController.navigationBar.frame.size.height;
     cellHeight = ([[UIScreen mainScreen] bounds].size.height - TOOLBAR_SIZE - navigationBarSize) / NUMBER_OF_CELLS;
     [self.tableView setBackgroundColor:[UIColor clearColor]];
